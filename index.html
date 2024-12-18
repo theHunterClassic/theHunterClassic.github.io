@@ -6676,46 +6676,6 @@
 
 
 
-function savePageState() {
-    // Create an object to store the entire page state
-    const pageState = {
-        htmlContent: document.body.innerHTML, // Save the entire HTML of the body
-        scrollPosition: window.scrollY        // Save the scroll position
-    };
-
-    // Save the page state to localStorage
-    localStorage.setItem('pageState', JSON.stringify(pageState));
-}
-
-function restorePageState() {
-    // Retrieve the saved page state from localStorage
-    const savedState = JSON.parse(localStorage.getItem('pageState'));
-
-    if (!savedState) return; // If no state is saved, do nothing
-
-    // Restore the HTML content of the body
-    document.body.innerHTML = savedState.htmlContent;
-
-    // Restore the scroll position after the DOM is fully updated
-    setTimeout(() => {
-        window.scrollTo(0, savedState.scrollPosition);
-    }, 0);
-}
-
-// Automatically save the page state on user interaction
-function setupAutoSave() {
-    document.addEventListener('click', savePageState); // Save on clicks
-    document.addEventListener('input', savePageState); // Save on input changes (e.g., forms, search bars)
-    document.addEventListener('scroll', savePageState); // Save on scrolling
-}
-
-// Restore the state when the page loads
-window.addEventListener('DOMContentLoaded', () => {
-    restorePageState();
-    setupAutoSave(); // Start monitoring interactions for auto-save
-});
-
-
 
 	
 // let selectedCard = null; // Declare a variable to store the selected card

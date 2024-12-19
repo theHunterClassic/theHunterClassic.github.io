@@ -684,6 +684,17 @@
     margin-left: 0; /* Ensure no margin for left alignment */
 }
 
+     .glowing-gif {
+            border: 5px solid transparent; /* Optional border */
+            border-radius: 10px; /* Makes the corners rounded */
+            box-shadow: 0 0 5px #FF5722, 
+                        0 0 10px #FF5722,
+                        0 0 15px #FF5722;
+			
+
+            display: block; /* Ensures the GIF behaves like a block */
+            margin left: 0px auto; /* Centers the GIF */
+        }
 
 
 	
@@ -698,9 +709,10 @@
 
 <div id="paste-data" class="tab-content">
     <h3>Paste Your Mission Data</h3>
-    <img src="https://i.postimg.cc/L5q0Dhv6/ezgif-com-added-text.gif" alt="How to paste" style="width: 25%; height: auto;">
-    <p>*Works with launcher too.</p>
-    <p>Paste your mission data here to import your progress:</p>
+	<img class="glowing-gif" src="https://i.postimg.cc/L5q0Dhv6/ezgif-com-added-text.gif" alt="How to paste" style="width: 25%; height: auto;">
+<p>*Works with launcher too.</p>
+
+	    <br><p>Paste your mission data here to import your progress:</p>
     <textarea class="data-paste" placeholder="Paste your mission data here..."></textarea>
     <button class="load-button" onclick="loadMissionData()">Load Missions</button>
 </div>

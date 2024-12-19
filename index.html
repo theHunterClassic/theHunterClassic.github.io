@@ -3,7 +3,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 	<link rel="icon" href="https://i.postimg.cc/ZR6VcL7f/Rg-YCfyr-F-1.png">
 <style>
-    body {
+   body {
         font-family: 'Montserrat', sans-serif;
         background: #2D2D2D;
         color: #ecf0f1;
@@ -88,36 +88,37 @@
 	
 	
 	
-	    .animal-card2 {
-        width: calc((100% - 80px) / 5); /* 80px accounts for 4 gaps between 5 cards */
-        min-width: 200px;
-        text-align: center;
-        border: 1px solid #FF5722;
-        min-height: 230px; /* Added to ensure consistent height with or without image */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        background: #4D4D4D;
-        border-radius: 8px;
-        padding: 15px;
-        cursor: pointer;
-        transition: transform 0.3s ease;
-        box-sizing: border-box;
-		position: relative;
-    }
+	
+.animal-card2 {
+    width: calc((100% - 80px) / 5); /* 80px accounts for 4 gaps between 5 cards */
+    min-width: 200px;
+    text-align: center;
+    border: 1px solid #FF5722;
+    min-height: 230px; /* Added to ensure consistent height with or without image */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(135deg, #4D4D4D,#202020); /* Gradient background */
+    border-radius: 8px;
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-sizing: border-box;
+    position: relative;
+}
 
-    .animal-card2:hover {
-        transform: translateY(-5px);
-        background: #5D5D5D;
-    }
+.animal-card2:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(135deg, rgba(93, 93, 93, 98.0), rgba(55, 55, 55, 98.0) ); /* Add transparency */
+}
+
 
     .animal-card2.selected {
         box-shadow: 0 0 15px #FF5722;
         transform: translateY(-5px);
-        background: #5D5D5D;
+         background: linear-gradient(135deg, rgba(93, 93, 93, 90.1), rgba(55, 55, 55, 90.1) ); /* Add transparency */
         position: relative;
     }
-
     .animal-card2.selected::after {
         content: '';
         position: absolute;
@@ -153,34 +154,34 @@
 	
 	
 	
+.animal-card {
+    width: calc((100% - 80px) / 5); /* 80px accounts for 4 gaps between 5 cards */
+    min-width: 200px;
+    text-align: center;
+    border: 1px solid #FF5722;
+    min-height: 230px; /* Added to ensure consistent height with or without image */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(135deg, #4D4D4D,#202020); /* Gradient background */
+    border-radius: 8px;
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-sizing: border-box;
+    position: relative;
+}
 
-    .animal-card {
-        width: calc((100% - 80px) / 5); /* 80px accounts for 4 gaps between 5 cards */
-        min-width: 200px;
-        text-align: center;
-        border: 1px solid #FF5722;
-        min-height: 230px; /* Added to ensure consistent height with or without image */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        background: #4D4D4D;
-        border-radius: 8px;
-        padding: 15px;
-        cursor: pointer;
-        transition: transform 0.3s ease;
-        box-sizing: border-box;
-		position: relative;
-    }
+.animal-card:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(135deg, rgba(93, 93, 93, 98.0), rgba(55, 55, 55, 98.0) ); /* Add transparency */
+}
 
-    .animal-card:hover {
-        transform: translateY(-5px);
-        background: #5D5D5D;
-    }
 
     .animal-card.selected {
         box-shadow: 0 0 15px #FF5722;
         transform: translateY(-5px);
-        background: #5D5D5D;
+         background: linear-gradient(135deg, rgba(93, 93, 93, 90.1), rgba(55, 55, 55, 90.1) ); /* Add transparency */
         position: relative;
     }
 
@@ -672,6 +673,7 @@
 	margin: 0 auto;
 	    align-items: center;
     justify-content: center;
+		
 }
 
 .mission-thumbnail-wrapper img {
@@ -683,7 +685,6 @@
     display: block;
     margin-left: 0; /* Ensure no margin for left alignment */
 }
-
      .glowing-gif {
             border: 5px solid transparent; /* Optional border */
             border-radius: 10px; /* Makes the corners rounded */

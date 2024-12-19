@@ -1,7 +1,8 @@
-<html><head><base href="." />
-<title>theHunter Classic Mission Tool</title>
+<html>
+<head>
+<base href="." />
+<title>Hunting Game Mission Pack Manager</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-	<link rel="icon" href="https://i.postimg.cc/ZR6VcL7f/Rg-YCfyr-F-1.png">
 <style>
     body {
         font-family: 'Montserrat', sans-serif;
@@ -88,36 +89,37 @@
 	
 	
 	
-	    .animal-card2 {
-        width: calc((100% - 80px) / 5); /* 80px accounts for 4 gaps between 5 cards */
-        min-width: 200px;
-        text-align: center;
-        border: 1px solid #FF5722;
-        min-height: 230px; /* Added to ensure consistent height with or without image */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        background: #4D4D4D;
-        border-radius: 8px;
-        padding: 15px;
-        cursor: pointer;
-        transition: transform 0.3s ease;
-        box-sizing: border-box;
-		position: relative;
-    }
+	
+.animal-card2 {
+    width: calc((100% - 80px) / 5); /* 80px accounts for 4 gaps between 5 cards */
+    min-width: 200px;
+    text-align: center;
+    border: 1px solid #FF5722;
+    min-height: 230px; /* Added to ensure consistent height with or without image */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(135deg, #4D4D4D,#202020); /* Gradient background */
+    border-radius: 8px;
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-sizing: border-box;
+    position: relative;
+}
 
-    .animal-card2:hover {
-        transform: translateY(-5px);
-        background: #5D5D5D;
-    }
+.animal-card2:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(135deg, rgba(93, 93, 93, 98.0), rgba(55, 55, 55, 98.0) ); /* Add transparency */
+}
+
 
     .animal-card2.selected {
         box-shadow: 0 0 15px #FF5722;
         transform: translateY(-5px);
-        background: #5D5D5D;
+         background: linear-gradient(135deg, rgba(93, 93, 93, 90.1), rgba(55, 55, 55, 90.1) ); /* Add transparency */
         position: relative;
     }
-
     .animal-card2.selected::after {
         content: '';
         position: absolute;
@@ -153,34 +155,34 @@
 	
 	
 	
+.animal-card {
+    width: calc((100% - 80px) / 5); /* 80px accounts for 4 gaps between 5 cards */
+    min-width: 200px;
+    text-align: center;
+    border: 1px solid #FF5722;
+    min-height: 230px; /* Added to ensure consistent height with or without image */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(135deg, #4D4D4D,#202020); /* Gradient background */
+    border-radius: 8px;
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-sizing: border-box;
+    position: relative;
+}
 
-    .animal-card {
-        width: calc((100% - 80px) / 5); /* 80px accounts for 4 gaps between 5 cards */
-        min-width: 200px;
-        text-align: center;
-        border: 1px solid #FF5722;
-        min-height: 230px; /* Added to ensure consistent height with or without image */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        background: #4D4D4D;
-        border-radius: 8px;
-        padding: 15px;
-        cursor: pointer;
-        transition: transform 0.3s ease;
-        box-sizing: border-box;
-		position: relative;
-    }
+.animal-card:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(135deg, rgba(93, 93, 93, 98.0), rgba(55, 55, 55, 98.0) ); /* Add transparency */
+}
 
-    .animal-card:hover {
-        transform: translateY(-5px);
-        background: #5D5D5D;
-    }
 
     .animal-card.selected {
         box-shadow: 0 0 15px #FF5722;
         transform: translateY(-5px);
-        background: #5D5D5D;
+         background: linear-gradient(135deg, rgba(93, 93, 93, 90.1), rgba(55, 55, 55, 90.1) ); /* Add transparency */
         position: relative;
     }
 
@@ -672,6 +674,7 @@
 	margin: 0 auto;
 	    align-items: center;
     justify-content: center;
+		
 }
 
 .mission-thumbnail-wrapper img {
@@ -683,7 +686,6 @@
     display: block;
     margin-left: 0; /* Ensure no margin for left alignment */
 }
-
      .glowing-gif {
             border: 5px solid transparent; /* Optional border */
             border-radius: 10px; /* Makes the corners rounded */
@@ -697,8 +699,13 @@
         }
 
 
+
 	
 </style>
+
+
+
+
 </head>
 <body>
 <div class="tab-header">
@@ -717,253 +724,413 @@
     <button class="load-button" onclick="loadMissionData()">Load Missions</button>
 </div>
 
-<div id="mission-manager" class="tab-content active">
-    <div class="mission-pack">
+
+
+
+
+
+
+		<div id="mission-manager" 
+		class="tab-content active">
+		<div class="mission-pack">
         <div class="animal-cards">
-           <div class="animal-card" onclick="toggleMissions('advanced-firearms-missions')">
-                <img src="https://i.postimg.cc/vTDvyj6P/iSr91k-F.jpg" alt="Advanced Firearms" title="Advanced Firearms" class="animal-thumbnail">
+		
+		<div class="animal-card" onclick="toggleMissions('advanced-firearms-missions')">
+		   
+                <img src="https://i.postimg.cc/vTDvyj6P/iSr91k-F.jpg" 
+				alt="Advanced Firearms" 
+				title="Advanced Firearms" 
+				class="animal-thumbnail">
                 <h3>Advanced Firearms Missions</h3>
             </div>
-			
+	
 			<div class="animal-card" onclick="toggleMissions('aimpoint-missions')">
-                <img src="https://static.wikia.nocookie.net/thehuntergame/images/7/7b/Aimpoint_logo.png" alt="Advanced Firearms" title="Advanced Firearms" class="animal-thumbnail">
+                <img src="https://i.postimg.cc/fbwfQ0KL/tenpoint.png"
+				alt="Advanced Firearms" 
+				title="Advanced Firearms" 
+				class="animal-thumbnail">
                 <h3>Aimpoint Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('alpine-ibex-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/alpine_ibex.png" alt="Alpine Ibex" title="Alpine Ibex" class="animal-thumbnail">
-                <h3>Alpine Ibex Missions</h3>
+		
+			
+                <img src="https://static.thehunter.com/static/img/statistics/alpine_ibex.png"
+				alt="Alpine Ibex" title="Alpine Ibex"
+				class="animal-thumbnail"
+               style="background-image: url('https://i.postimg.cc/PJDBkpt4/d03d6303-7514-4422-9301-8d7f6f86172a.jpg');
+background-size: cover; background-position: center;">
+				<h3>Alpine Ibex Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('anschutz-missions')">
-                <img src="https://static.wikia.nocookie.net/thehuntergame/images/f/f0/Anschuetz_logo.png" alt="Anschütz" title="Anschütz" class="animal-thumbnail">
-                <h3>Anschutz Missions</h3>
+                
+				<img src="https://i.postimg.cc/fbK5VvLm/tenpoint.png" alt="Anschütz" title="Anschütz" class="animal-thumbnail">
+                
+				<h3>Anschutz Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('arctic-fox-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/arctic_fox.png" alt="Arctic Fox" title="Arctic Fox" class="animal-thumbnail">
-                <h3>Arctic Fox Missions</h3>
+                
+				<img src="https://static.thehunter.com/static/img/statistics/arctic_fox.png" 
+				alt="Arctic Fox" 
+				title="Arctic Fox" 
+				class="animal-thumbnail"
+               style="background-image: url('https://i.postimg.cc/SsCrSWMJ/fa6113a6-3064-45df-89c9-a14cfb9c251d.jpg');
+					  background-size: cover; background-position: center;">
+				<h3>Arctic Fox Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('axis-deer-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/axis_deer.png" alt="Axis Deer" title="Axis Deer" class="animal-thumbnail">
-                <h3>Axis Deer Missions</h3>
+			
+                <img src="https://static.thehunter.com/static/img/statistics/axis_deer.png" 
+				alt="Axis Deer" 
+				title="Axis Deer" 
+				class="animal-thumbnail"
+				style="background-image: url('https://i.postimg.cc/D0mwQcPz/1f1b5a95-dc47-4c46-a519-adf8f610b606.jpg'); 
+				background-size: cover; background-position: center;">
+               
+				<h3>Axis Deer Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('banteng-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/banteng.png" alt="Banteng" title="Banteng" class="animal-thumbnail">
-                <h3>Banteng Missions</h3>
+                
+				<img src="https://static.thehunter.com/static/img/statistics/banteng.png" alt="Banteng" title="Banteng" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/BQQxkWM8/bc9b968c-1453-40ca-ae01-1cd5d929f8f7.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Banteng Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('bighorn-sheep-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/bighorn_sheep.png" alt="Bighorn Sheep" title="Bighorn Sheep" class="animal-thumbnail">
-                <h3>Bighorn Sheep Missions</h3>
+                
+				<img src="https://static.thehunter.com/static/img/statistics/bighorn_sheep.png" alt="Bighorn Sheep" title="Bighorn Sheep" class="animal-thumbnail"
+               style="background-image: url('https://i.postimg.cc/PJDBkpt4/d03d6303-7514-4422-9301-8d7f6f86172a.jpg');
+background-size: cover; background-position: center;">
+
+			   <h3>Bighorn Sheep Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('bison-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/bison.png" alt="Bison" title="Bison" class="animal-thumbnail">
-                <h3>Bison Missions</h3>
+                
+				<img src="https://static.thehunter.com/static/img/statistics/bison.png" alt="Bison" title="Bison" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/SsCrSWMJ/fa6113a6-3064-45df-89c9-a14cfb9c251d.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Bison Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('black-bear-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/black_bear.png" alt="Black Bear" title="Black Bear" class="animal-thumbnail">
-                <h3>Black Bear Missions</h3>
+                
+				<img src="https://static.thehunter.com/static/img/statistics/black_bear.png" alt="Black Bear" title="Black Bear" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/7ZZx892Y/1962ea2d-0595-4b0e-bd3f-5396ce20c84d.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Black Bear Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('blacktail-deer-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/blacktail_deer.png" alt="Blacktail Deer" title="Blacktail Deer" class="animal-thumbnail">
-                <h3>Blacktail Deer Missions</h3>
+                
+				<img src="https://static.thehunter.com/static/img/statistics/blacktail_deer.png" alt="Blacktail Deer" title="Blacktail Deer" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/7ZZx892Y/1962ea2d-0595-4b0e-bd3f-5396ce20c84d.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Blacktail Deer Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('blaser-missions')">
-                <img src="https://static.wikia.nocookie.net/thehuntergame/images/e/ec/Blaser_logo.jpg" alt="Blaser" title="Blaser" class="animal-thumbnail">
+                <img src="https://i.postimg.cc/SRtvJfgD/tenpoint.png" alt="Blaser" title="Blaser" class="animal-thumbnail">
                 <h3>Blaser Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('bobcat-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/bobcat.png" alt="Bobcat" title="Bobcat" class="animal-thumbnail">
-                <h3>Bobcat Missions</h3>
+               
+			   <img src="https://static.thehunter.com/static/img/statistics/bobcat.png" alt="Bobcat" title="Bobcat" class="animal-thumbnail"
+               style="background-image: url('https://i.postimg.cc/7ZZx892Y/1962ea2d-0595-4b0e-bd3f-5396ce20c84d.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Bobcat Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('brown-bear-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/brown_bear.png" alt="Brown Bear" title="Brown Bear" class="animal-thumbnail">
-                <h3>Brown Bear Missions</h3>
+                
+				<img src="https://static.thehunter.com/static/img/statistics/brown_bear.png" alt="Brown Bear" title="Brown Bear" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/1RCNdqkM/output.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Brown Bear Missions</h3>
             </div>
 			
 
             <div class="animal-card" onclick="toggleMissions('bushrangers-run-travel-missions')">
-                <img src="https://static.wikia.nocookie.net/thehuntergame/images/2/22/Bushrangers_run_icon.png" alt="Bushrangers Run" title="Bushrangers Run" class="animal-thumbnail">
-                <h3>Bushrangers Run Travel Missions</h3>
+               
+			   <img src="https://static.wikia.nocookie.net/thehuntergame/images/2/22/Bushrangers_run_icon.png" alt="Bushrangers Run" title="Bushrangers Run" class="animal-thumbnail"
+               > 
+				<h3>Bushrangers Run Travel Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('canada-goose-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/canada_goose.png" alt="Canada Goose" title="Canada Goose" class="animal-thumbnail">
-                <h3>Canada Goose Missions</h3>
+                
+				<img src="https://static.thehunter.com/static/img/statistics/canada_goose.png" alt="Canada Goose" title="Canada Goose" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/2jdsTWKk/5afad3da-96d6-480e-86d9-609348d15516.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Canada Goose Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('cottontail-rabbit-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/cottontail_rabbit.png" alt="Cottontail Rabbit" title="Cottontail Rabbit" class="animal-thumbnail">
-                <h3>Cottontail Rabbit Missions</h3>
+                
+				<img src="https://static.thehunter.com/static/img/statistics/cottontail_rabbit.png" alt="Cottontail Rabbit" title="Cottontail Rabbit" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/7ZZx892Y/1962ea2d-0595-4b0e-bd3f-5396ce20c84d.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Cottontail Rabbit Missions</h3>
             </div>
 
 			<div class="animal-card" onclick="toggleMissions('coyote-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/coyote.png" alt="Coyote" title="Coyote" class="animal-thumbnail">
-                <h3>Coyote Missions</h3>
+                <img src="https://static.thehunter.com/static/img/statistics/coyote.png" alt="Coyote" title="Coyote" class="animal-thumbnail"
+             style="background-image: url('https://i.postimg.cc/7ZZx892Y/1962ea2d-0595-4b0e-bd3f-5396ce20c84d.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Coyote Missions</h3>
             </div>
 
 			<div class="animal-card" onclick="toggleMissions('dall-sheep-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/dall_sheep.png" alt="Dall Sheep" title="Dall Sheep" class="animal-thumbnail">
-                <h3>Dall Sheep Missions</h3>
+                
+				<img src="https://static.thehunter.com/static/img/statistics/dall_sheep.png" alt="Dall Sheep" title="Dall Sheep" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/PJDBkpt4/d03d6303-7514-4422-9301-8d7f6f86172a.jpg');
+background-size: cover; background-position: center;">
+				<h3>Dall Sheep Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('duck-missions')">
-                <img src="https://static.wikia.nocookie.net/thehuntergame/images/2/2b/American_black_duck_male_common.png" alt="Duck" title="Duck" class="animal-thumbnail">
-                <h3>Duck Missions</h3>
+                
+				<img src="https://static.wikia.nocookie.net/thehuntergame/images/2/2b/American_black_duck_male_common.png" alt="Duck" title="Duck" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/rpT72FbG/69febbf3-bfcf-42ad-a662-dbc57c0f678d.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Duck Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('eurasian-lynx-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/lynx_eurasian.png" alt="Eurasian Lynx" title="Eurasian Lynx" class="animal-thumbnail">
-                <h3>Eurasian Lynx Missions</h3>
+                
+				<img src="https://static.thehunter.com/static/img/statistics/lynx_eurasian.png" alt="Eurasian Lynx" title="Eurasian Lynx" class="animal-thumbnail"
+              
+style="background-image: url('https://i.postimg.cc/1RCNdqkM/output.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Eurasian Lynx Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('european-rabbit-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/european_rabbit.png" alt="European Rabbit" title="European Rabbit" class="animal-thumbnail">
-                <h3>European Rabbit Missions</h3>
+                
+				<img src="https://static.thehunter.com/static/img/statistics/european_rabbit.png" alt="European Rabbit" title="European Rabbit" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/D0mwQcPz/1f1b5a95-dc47-4c46-a519-adf8f610b606.jpg'); 
+				background-size: cover; background-position: center;">
+				<h3>European Rabbit Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('fallow-deer-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/fallow_deer.png" alt="Fallow Deer" title="Fallow Deer" class="animal-thumbnail">
-                <h3>Fallow Deer Missions</h3>
+                
+				<img src="https://static.thehunter.com/static/img/statistics/fallow_deer.png" alt="Fallow Deer" title="Fallow Deer" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/2jdsTWKk/5afad3da-96d6-480e-86d9-609348d15516.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Fallow Deer Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('feral-goat-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/feral_goat.png" alt="Feral Goat" title="Feral Goat" class="animal-thumbnail">
-                <h3>Feral Goat Missions</h3>
+                
+				<img src="https://static.thehunter.com/static/img/statistics/feral_goat.png" alt="Feral Goat" title="Feral Goat" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/PJDBkpt4/d03d6303-7514-4422-9301-8d7f6f86172a.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Feral Goat Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('feral-hog-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/feral_hog.png" alt="Feral Hog" title="Feral Hog" class="animal-thumbnail">
-                <h3>Feral Hog Missions</h3>
+                
+				<img src="https://static.thehunter.com/static/img/statistics/feral_hog.png" alt="Feral Hog" title="Feral Hog" class="animal-thumbnail"
+               style="background-image: url('https://i.postimg.cc/7ZZx892Y/1962ea2d-0595-4b0e-bd3f-5396ce20c84d.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Feral Hog Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('grey-wolf-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/wolf.png" alt="Grey Wolf" title="Grey Wolf" class="animal-thumbnail">
-                <h3>Grey Wolf Missions</h3>
+                <img src="https://static.thehunter.com/static/img/statistics/wolf.png" alt="Grey Wolf" title="Grey Wolf" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/2jdsTWKk/5afad3da-96d6-480e-86d9-609348d15516.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Grey Wolf Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('grizzly-bear-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/grizzly_bear.png" alt="Grizzly Bear" title="Grizzly Bear" class="animal-thumbnail">
-                <h3>Grizzly Bear Missions</h3>
+                <img src="https://static.thehunter.com/static/img/statistics/grizzly_bear.png" alt="Grizzly Bear" title="Grizzly Bear" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/2jdsTWKk/5afad3da-96d6-480e-86d9-609348d15516.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Grizzly Bear Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('hemmeldal-travel-missions')">
-                <img src="https://static.wikia.nocookie.net/thehuntergame/images/f/ff/Hemmeldal_Icon.png" alt="Hemmeldal" title="Hemmeldal" class="animal-thumbnail">
-                <h3>Hemmeldal Travel Missions</h3>
+                <img src="https://static.wikia.nocookie.net/thehuntergame/images/f/ff/Hemmeldal_Icon.png" alt="Hemmeldal" title="Hemmeldal" class="animal-thumbnail"
+                >
+				<h3>Hemmeldal Travel Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('hirschfelden-travel-missions')">
-                <img src="https://static.wikia.nocookie.net/thehuntergame/images/f/f0/Hirschfelden_icon.png" alt="Hirschfelden" title="Hirschfelden" class="animal-thumbnail">
-                <h3>Hirschfelden Travel Missions</h3>
+                
+			<img src="https://static.wikia.nocookie.net/thehuntergame/images/f/f0/Hirschfelden_icon.png" alt="Hirschfelden" title="Hirschfelden" class="animal-thumbnail"
+            >
+			<h3>Hirschfelden Travel Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('laura-francese-missions')">
-                <img src="https://static.wikia.nocookie.net/thehuntergame/images/2/21/Laura_francese_avatar_256.png" alt="Laura Francese" title="Laura Francese" class="animal-thumbnail">
-                <h3>Laura Francese Missions</h3>
+                <img src="https://static.wikia.nocookie.net/thehuntergame/images/2/21/Laura_francese_avatar_256.png" alt="Laura Francese" title="Laura Francese" class="animal-thumbnail"
+               > <h3>Laura Francese Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('magpie-goose-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/magpie_goose.png" alt="Magpie Goose" title="Magpie Goose" class="animal-thumbnail">
+                <img src="https://static.thehunter.com/static/img/statistics/magpie_goose.png" alt="Magpie Goose" title="Magpie Goose" class="animal-thumbnail"
+style="background-image: url('https://i.postimg.cc/BQQxkWM8/bc9b968c-1453-40ca-ae01-1cd5d929f8f7.jpg');
+background-size: cover; background-position: center;">
+
                 <h3>Magpie Goose Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('mallard-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/mallard.png" alt="Mallard" title="Mallard" class="animal-thumbnail">
+                <img src="https://static.thehunter.com/static/img/statistics/mallard.png" alt="Mallard" title="Mallard" class="animal-thumbnail"
+style="background-image: url('https://i.postimg.cc/rpT72FbG/69febbf3-bfcf-42ad-a662-dbc57c0f678d.jpg');
+background-size: cover; background-position: center;">
+
                 <h3>Mallard Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('moose-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/moose.png" alt="Moose" title="Moose" class="animal-thumbnail">
+                <img src="https://static.thehunter.com/static/img/statistics/moose.png" alt="Moose" title="Moose" class="animal-thumbnail"
+				style="background-image: url('https://i.postimg.cc/7ZZx892Y/1962ea2d-0595-4b0e-bd3f-5396ce20c84d.jpg');
+background-size: cover; background-position: center;">
+
                 <h3>Moose Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('mule-deer-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/mule_deer.png" alt="Mule Deer" title="Mule Deer" class="animal-thumbnail">
-                <h3>Mule Deer Missions</h3>
+                <img src="https://static.thehunter.com/static/img/statistics/mule_deer.png" alt="Mule Deer" title="Mule Deer" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/2jdsTWKk/5afad3da-96d6-480e-86d9-609348d15516.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Mule Deer Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('nosler-missions')">
-                <img src="https://static.wikia.nocookie.net/thehuntergame/images/5/50/Nosler_logo.jpg" alt="Nosler" title="Nosler" class="animal-thumbnail">
-                <h3>Nosler Missions</h3>
+                <img src="https://static.wikia.nocookie.net/thehuntergame/images/5/50/Nosler_logo.jpg" alt="Nosler" title="Nosler" class="animal-thumbnail"
+                >
+				<h3>Nosler Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('parker-bows-missions')">
                 <img src="https://static.wikia.nocookie.net/thehuntergame/images/c/c1/Parker_logo.jpg" alt="Parker Bows" title="Parker Bows" class="animal-thumbnail">
-                <h3>Parker Bows Missions</h3>
+                
+				<h3>Parker Bows Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('pheasant-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/pheasant.png" alt="Pheasant" title="Pheasant" class="animal-thumbnail">
-                <h3>Pheasant Missions</h3>
+                <img src="https://static.thehunter.com/static/img/statistics/pheasant.png" alt="Pheasant" title="Pheasant" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/2jdsTWKk/5afad3da-96d6-480e-86d9-609348d15516.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Pheasant Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('piccabeen-bay-travel-missions')">
                 <img src="https://static.wikia.nocookie.net/thehuntergame/images/c/c3/PB_icon.png" alt="Piccabeen Bay" title="Piccabeen Bay" class="animal-thumbnail">
-                <h3>Piccabeen Bay Travel Missions</h3>
+                
+				<h3>Piccabeen Bay Travel Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('polar-bear-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/polar_bear.png" alt="Polar Bear" title="Polar Bear" class="animal-thumbnail">
-                <h3>Polar Bear Missions</h3>
+                <img src="https://static.thehunter.com/static/img/statistics/polar_bear.png" alt="Polar Bear" title="Polar Bear" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/SsCrSWMJ/fa6113a6-3064-45df-89c9-a14cfb9c251d.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Polar Bear Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('ptarmigan-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/ptarmigan_rock.png" alt="Ptarmigan" title="Ptarmigan" class="animal-thumbnail">
-                <h3>Ptarmigan Missions</h3>
+                <img src="https://static.thehunter.com/static/img/statistics/ptarmigan_rock.png" alt="Ptarmigan" title="Ptarmigan" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/PJDBkpt4/d03d6303-7514-4422-9301-8d7f6f86172a.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Ptarmigan Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('puma-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/puma.png" alt="Puma" title="Puma" class="animal-thumbnail">
-                <h3>Puma Missions</h3>
+                <img src="https://static.thehunter.com/static/img/statistics/puma.png" alt="Puma" title="Puma" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/2jdsTWKk/5afad3da-96d6-480e-86d9-609348d15516.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Puma Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('red-deer-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/red_deer.png" alt="Red Deer" title="Red Deer" class="animal-thumbnail">
-                <h3>Red Deer Missions</h3>
+                <img src="https://static.thehunter.com/static/img/statistics/red_deer.png" alt="Red Deer" title="Red Deer" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/2jdsTWKk/5afad3da-96d6-480e-86d9-609348d15516.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Red Deer Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('red-fox-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/red_fox.png" alt="Red Fox" title="Red Fox" class="animal-thumbnail">
-                <h3>Red Fox Missions</h3>
+                <img src="https://static.thehunter.com/static/img/statistics/red_fox.png" alt="Red Fox" title="Red Fox" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/PJDBkpt4/d03d6303-7514-4422-9301-8d7f6f86172a.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Red Fox Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('red-kangaroo-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/red_kangaroo.png" alt="Red Kangaroo" title="Red Kangaroo" class="animal-thumbnail">
-                <h3>Red Kangaroo Missions</h3>
+                <img src="https://static.thehunter.com/static/img/statistics/red_kangaroo.png" alt="Red Kangaroo" title="Red Kangaroo" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/D0mwQcPz/1f1b5a95-dc47-4c46-a519-adf8f610b606.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Red Kangaroo Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('redfeather-falls-travel-missions')">
-                <img src="https://static.wikia.nocookie.net/thehuntergame/images/b/bc/RFF_icon2.png" alt="Redfeather Falls" title="Redfeather Falls" class="animal-thumbnail">
-                <h3>Redfeather Falls Travel Missions</h3>
+                <img src="https://static.wikia.nocookie.net/thehuntergame/images/b/bc/RFF_icon2.png" alt="Redfeather Falls" title="Redfeather Falls" class="animal-thumbnail"
+                >
+				<h3>Redfeather Falls Travel Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('reindeer-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/reindeer.png" alt="Reindeer" title="Reindeer" class="animal-thumbnail">
-                <h3>Reindeer Missions</h3>
+                <img src="https://static.thehunter.com/static/img/statistics/reindeer.png" alt="Reindeer" title="Reindeer" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/1RCNdqkM/output.jpg');
+background-size: cover; background-position: center;">
+				<h3>Reindeer Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('rocky-mountain-elk-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/rocky_mountain_elk.png" alt="Rocky Mountain Elk" title="Rocky Mountain Elk" class="animal-thumbnail">
-                <h3>Rocky Mountain Elk Missions</h3>
+                <img src="https://static.thehunter.com/static/img/statistics/rocky_mountain_elk.png" alt="Rocky Mountain Elk" title="Rocky Mountain Elk" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/2jdsTWKk/5afad3da-96d6-480e-86d9-609348d15516.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Rocky Mountain Elk Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('roe-deer-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/roe_deer.png" alt="Roe Deer" title="Roe Deer" class="animal-thumbnail">
-                <h3>Roe Deer Missions</h3>
+                <img src="https://static.thehunter.com/static/img/statistics/roe_deer.png" alt="Roe Deer" title="Roe Deer" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/1RCNdqkM/output.jpg');
+background-size: cover; background-position: center;">
+				<h3>Roe Deer Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('roosevelt-elk-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/roosevelt_elk.png" alt="Roosevelt Elk" title="Roosevelt Elk" class="animal-thumbnail">
-                <h3>Roosevelt Elk Missions</h3>
+                <img src="https://static.thehunter.com/static/img/statistics/roosevelt_elk.png" alt="Roosevelt Elk" title="Roosevelt Elk" class="animal-thumbnail"
+               style="background-image: url('https://i.postimg.cc/7ZZx892Y/1962ea2d-0595-4b0e-bd3f-5396ce20c84d.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Roosevelt Elk Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('rougarou-bayou-travel-missions')">
@@ -972,13 +1139,19 @@
             </div>
 
             <div class="animal-card" onclick="toggleMissions('rusa-deer-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/rusa_deer.png" alt="Rusa Deer" title="Rusa Deer" class="animal-thumbnail">
-                <h3>Rusa Deer Missions</h3>
+                <img src="https://static.thehunter.com/static/img/statistics/rusa_deer.png" alt="Rusa Deer" title="Rusa Deer" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/BQQxkWM8/bc9b968c-1453-40ca-ae01-1cd5d929f8f7.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Rusa Deer Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('sambar-deer-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/sambar_deer.png" alt="Sambar Deer" title="Sambar Deer" class="animal-thumbnail">
-                <h3>Sambar Deer Missions</h3>
+                <img src="https://static.thehunter.com/static/img/statistics/sambar_deer.png" alt="Sambar Deer" title="Sambar Deer" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/BQQxkWM8/bc9b968c-1453-40ca-ae01-1cd5d929f8f7.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Sambar Deer Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('settler-creeks-travel-missions')">
@@ -992,27 +1165,42 @@
             </div>
 
             <div class="animal-card" onclick="toggleMissions('sitka-deer-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/sitka_deer.png" alt="Sitka Deer" title="Sitka Deer" class="animal-thumbnail">
-                <h3>Sitka Deer Missions</h3>
+                <img src="https://static.thehunter.com/static/img/statistics/sitka_deer.png" 
+				alt="Sitka Deer" 
+				title="Sitka Deer" 
+				class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/SsCrSWMJ/fa6113a6-3064-45df-89c9-a14cfb9c251d.jpg');
+					   background-size: cover; background-position: center;">
+
+				<h3>Sitka Deer Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('smoke-pole-missions')">
-                <img src="https://static.wikia.nocookie.net/thehuntergame/images/8/8d/Balls_lead_50_256.png" alt="Smoke Pole" title="Smoke Pole" class="animal-thumbnail">
+                <img src="https://static.wikia.nocookie.net/thehuntergame/images/8/8d/Balls_lead_50_256.png" 
+				alt="Smoke Pole" 
+				title="Smoke Pole" 
+				class="animal-thumbnail">
                 <h3>Smoke Pole Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('snow-goose-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/snow_goose.png" alt="Snow Goose" title="Snow Goose" class="animal-thumbnail">
-                <h3>Snow Goose Missions</h3>
+                <img src="https://static.thehunter.com/static/img/statistics/snow_goose.png" alt="Snow Goose" title="Snow Goose" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/SsCrSWMJ/fa6113a6-3064-45df-89c9-a14cfb9c251d.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Snow Goose Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('snowshoe-hare-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/snowshoe_hare.png" alt="Snowshoe Hare" title="Snowshoe Hare" class="animal-thumbnail">
-                <h3>Snowshoe Hare Missions</h3>
+                <img src="https://static.thehunter.com/static/img/statistics/snowshoe_hare.png" alt="Snowshoe Hare" title="Snowshoe Hare" class="animal-thumbnail"
+style="background-image: url('https://i.postimg.cc/SsCrSWMJ/fa6113a6-3064-45df-89c9-a14cfb9c251d.jpg');
+background-size: cover; background-position: center;">
+               
+			   <h3>Snowshoe Hare Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('tenpoint-missions')">
-                <img src="https://static.wikia.nocookie.net/thehuntergame/images/a/a8/Tenpoint_logo.jpg" alt="Tenpoint" title="Tenpoint" class="animal-thumbnail">
+                <img src="https://i.postimg.cc/RFm5BdYt/tenpoint.png" alt="Tenpoint" title="Tenpoint" class="animal-thumbnail">
                 <h3>Tenpoint Missions</h3>
             </div>
 
@@ -1023,7 +1211,7 @@
 
             <div class="animal-card" onclick="toggleMissions('timbergold-trails-travel-missions')">
                 <img src="https://static.wikia.nocookie.net/thehuntergame/images/c/ce/TT_icon.png" alt="Timbergold Trails" title="Timbergold Trails" class="animal-thumbnail">
-                <h3>Timbergold Trails Travel Missions</h3>
+                ><h3>Timbergold Trails Travel Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('traditional-bow-missions')">
@@ -1032,8 +1220,10 @@
             </div>
 
             <div class="animal-card" onclick="toggleMissions('turkey-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/turkey.png" alt="Turkey" title="Turkey" class="animal-thumbnail">
-                <h3>Turkey Missions</h3>
+                <img src="https://static.thehunter.com/static/img/statistics/turkey.png" alt="Turkey" title="Turkey" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/7ZZx892Y/1962ea2d-0595-4b0e-bd3f-5396ce20c84d.jpg');
+background-size: cover; background-position: center;">
+				<h3>Turkey Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('val-des-bois-travel-missions')">
@@ -1042,8 +1232,11 @@
             </div>
 
             <div class="animal-card" onclick="toggleMissions('water-buffalo-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/water_buffalo.png" alt="Water Buffalo" title="Water Buffalo" class="animal-thumbnail">
-                <h3>Water Buffalo Missions</h3>
+                <img src="https://static.thehunter.com/static/img/statistics/water_buffalo.png" alt="Water Buffalo" title="Water Buffalo" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/BQQxkWM8/bc9b968c-1453-40ca-ae01-1cd5d929f8f7.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Water Buffalo Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('whitehart-sightseeing-missions')">
@@ -1062,18 +1255,29 @@
             </div>
 			
 			<div class="animal-card" onclick="toggleMissions('whitetail-deer-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/whitetail_deer.png" alt="Whitetail Deer" title="Whitetail Deer" class="animal-thumbnail">
-                <h3>Whitetail Deer Missions</h3>
+                <img src="https://static.thehunter.com/static/img/statistics/whitetail_deer.png" alt="Whitetail Deer" title="Whitetail Deer" class="animal-thumbnail"
+               style="background-image: url('https://i.postimg.cc/7ZZx892Y/1962ea2d-0595-4b0e-bd3f-5396ce20c84d.jpg');
+background-size: cover; background-position: center;">
+
+				<h3>Whitetail Deer Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('wild-boar-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/wild_boar.png" alt="Wild Boar" title="Wild Boar" class="animal-thumbnail">
-                <h3>Wild Boar Missions</h3>
+                <img src="https://static.thehunter.com/static/img/statistics/wild_boar.png" alt="Wild Boar" title="Wild Boar" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/2jdsTWKk/5afad3da-96d6-480e-86d9-609348d15516.jpg');
+background-size: cover; background-position: center;">
+
+
+				<h3>Wild Boar Missions</h3>
             </div>
 
             <div class="animal-card" onclick="toggleMissions('wood-grouse-missions')">
-                <img src="https://static.thehunter.com/static/img/statistics/wood_grouse.png" alt="Wood Grouse" title="Wood Grouse" class="animal-thumbnail">
-                <h3>Wood Grouse Missions</h3>
+                <img src="https://static.thehunter.com/static/img/statistics/wood_grouse.png" alt="Wood Grouse" title="Wood Grouse" class="animal-thumbnail"
+                style="background-image: url('https://i.postimg.cc/2jdsTWKk/5afad3da-96d6-480e-86d9-609348d15516.jpg');
+background-size: cover; background-position: center;">
+
+
+				<h3>Wood Grouse Missions</h3>
             </div>
         </div>
 		
@@ -6590,66 +6794,66 @@
    
     <div class="mission-pack">
         <div class="animal-cards">
-       
-		    
-             	<div class="animal-card2" onclick="toggleFilteredMissions('best-available-missions')">
+            
+			
+			<div class="animal-card2" onclick="toggleFilteredMissions('best-available-missions')">
                 <img src="https://i.postimg.cc/1tY6Q1Nf/my-image-2.png"  alt="Highest gm$ Reward" title="Best Mission Avaliable" class="animal-thumbnail" style="margin-top: 30px;">
                 <h3>Best Mission Available</h3>
-       		</div>
+            </div>
             
             <div class="animal-card2" onclick="toggleFilteredMissions('whitehart-missions')">
-                <img src="https://static.wikia.nocookie.net/thehuntergame/images/a/a5/Whitehart_icon.png" alt="Hirschfelden" title="Hirschfelden" class="animal-thumbnail">
+                <img src="https://static.wikia.nocookie.net/thehuntergame/images/a/a5/Whitehart_icon.png" alt="Hirschfelden" title="Hirschfelden" class="animal-thumbnail"
                 <h3>Whitehart Island</h3>
             </div>
             <div class="animal-card2" onclick="toggleFilteredMissions('loggers-missions')">
-              <img src="https://static.wikia.nocookie.net/thehuntergame/images/0/04/Lp_icon.png" alt="Hirschfelden" title="Hirschfelden" class="animal-thumbnail">
+              <img src="https://static.wikia.nocookie.net/thehuntergame/images/0/04/Lp_icon.png" alt="Hirschfelden" title="Hirschfelden" class="animal-thumbnail"
                 <h3>Loggers Point</h3>
             </div>
             <div class="animal-card2" onclick="toggleFilteredMissions('settler-missions')">
-              <img src="https://static.wikia.nocookie.net/thehuntergame/images/0/08/Settler_Creeks_EW_icon.png" alt="Hirschfelden" title="Hirschfelden" class="animal-thumbnail">
+              <img src="https://static.wikia.nocookie.net/thehuntergame/images/0/08/Settler_Creeks_EW_icon.png" alt="Hirschfelden" title="Hirschfelden" class="animal-thumbnail"
               
                 <h3>Settler Creeks</h3>
             </div>
             <div class="animal-card2" onclick="toggleFilteredMissions('redfeather-missions')">
-              <img src="https://static.wikia.nocookie.net/thehuntergame/images/b/bc/RFF_icon2.png" alt="Hirschfelden" title="Hirschfelden" class="animal-thumbnail">
+              <img src="https://static.wikia.nocookie.net/thehuntergame/images/b/bc/RFF_icon2.png" alt="Hirschfelden" title="Hirschfelden" class="animal-thumbnail"
               
                 <h3>Redfeather Falls</h3>
             </div>
             <div class="animal-card2" onclick="toggleFilteredMissions('hirschfelden-missions')">
-                <img src="https://static.wikia.nocookie.net/thehuntergame/images/f/f0/Hirschfelden_icon.png" alt="Hirschfelden" title="Hirschfelden" class="animal-thumbnail">
+                <img src="https://static.wikia.nocookie.net/thehuntergame/images/f/f0/Hirschfelden_icon.png" alt="Hirschfelden" title="Hirschfelden" class="animal-thumbnail"
                 <h3>Hirschfelden</h3>
             </div>
             <div class="animal-card2" onclick="toggleFilteredMissions('hemmeldal-missions')">
-              <img src="https://static.wikia.nocookie.net/thehuntergame/images/f/ff/Hemmeldal_Icon.png" alt="Hirschfelden" title="Hirschfelden" class="animal-thumbnail">
+              <img src="https://static.wikia.nocookie.net/thehuntergame/images/f/ff/Hemmeldal_Icon.png" alt="Hirschfelden" title="Hirschfelden" class="animal-thumbnail"
               
                 <h3>Hemmeldal</h3>
             </div>
             <div class="animal-card2" onclick="toggleFilteredMissions('rougarou-missions')">
-              <img src="https://static.wikia.nocookie.net/thehuntergame/images/c/c9/Rougarou_Icon.png" alt="Hirschfelden" title="Hirschfelden" class="animal-thumbnail">
+              <img src="https://static.wikia.nocookie.net/thehuntergame/images/c/c9/Rougarou_Icon.png" alt="Hirschfelden" title="Hirschfelden" class="animal-thumbnail"
                 <h3>Rougarou Bayou</h3>
             </div>
             <div class="animal-card2" onclick="toggleFilteredMissions('val-missions')">
-              <img src="https://static.wikia.nocookie.net/thehuntergame/images/6/66/Val-des-bois_icon.png" alt="Hirschfelden" title="Hirschfelden" class="animal-thumbnail">
+              <img src="https://static.wikia.nocookie.net/thehuntergame/images/6/66/Val-des-bois_icon.png" alt="Hirschfelden" title="Hirschfelden" class="animal-thumbnail"
               
                 <h3>Val-des-Bois</h3>
             </div>
             <div class="animal-card2" onclick="toggleFilteredMissions('bushrangers-missions')">
-              <img src="https://static.wikia.nocookie.net/thehuntergame/images/2/22/Bushrangers_run_icon.png" alt="Hirschfelden" title="Hirschfelden" class="animal-thumbnail">
+              <img src="https://static.wikia.nocookie.net/thehuntergame/images/2/22/Bushrangers_run_icon.png" alt="Hirschfelden" title="Hirschfelden" class="animal-thumbnail"
               
                 <h3>Bushrangers Run</h3>
             </div>
             <div class="animal-card2" onclick="toggleFilteredMissions('whiterime-missions')">
-              <img src="https://static.wikia.nocookie.net/thehuntergame/images/5/55/WR_icon.png" alt="Hirschfelden" title="Hirschfelden" class="animal-thumbnail">
+              <img src="https://static.wikia.nocookie.net/thehuntergame/images/5/55/WR_icon.png" alt="Hirschfelden" title="Hirschfelden" class="animal-thumbnail"
               
                 <h3>Whiterime Ridge</h3>
             </div>
             <div class="animal-card2" onclick="toggleFilteredMissions('timbergold-missions')">
-              <img src="https://static.wikia.nocookie.net/thehuntergame/images/c/ce/TT_icon.png" alt="Hirschfelden" title="Hirschfelden" class="animal-thumbnail">
+              <img src="https://static.wikia.nocookie.net/thehuntergame/images/c/ce/TT_icon.png" alt="Hirschfelden" title="Hirschfelden" class="animal-thumbnail"
               
                 <h3>Timbergold Trails</h3>
             </div>
             <div class="animal-card2" onclick="toggleFilteredMissions('piccabeen-missions')">
-              <img src="https://static.wikia.nocookie.net/thehuntergame/images/c/c3/PB_icon.png" alt="Hirschfelden" title="Hirschfelden" class="animal-thumbnail">
+              <img src="https://static.wikia.nocookie.net/thehuntergame/images/c/c3/PB_icon.png" alt="Hirschfelden" title="Hirschfelden" class="animal-thumbnail"
               
                 <h3>Piccabeen Bay</h3>
             </div>
@@ -6683,12 +6887,30 @@
 
 </div>
 
+
+
+
+
+
+
+
+
+
+
 <script>
 
 
 
 
-	
+
+
+
+
+
+
+
+
+
 // let selectedCard = null; // Declare a variable to store the selected card
 
 
@@ -6710,6 +6932,7 @@ function scrollToSearch() {
             block: 'center'
         });
     }
+
 }
 
 
@@ -6731,6 +6954,7 @@ function openTab(tabName) {
     
     // Add active class to the clicked tab
     event.currentTarget.classList.add('active');
+	
 }
 
 function toggleMissions(missionId) {
@@ -7155,6 +7379,7 @@ searchBar.addEventListener('input', function() {
             block: 'start'
         });
     }
+	
 }
 
         /* Add bottom return button if it doesn't exist
@@ -7492,6 +7717,7 @@ function loadMissionData() {
 
     // Show success message
     alert('Mission progress loaded successfully!');
+	
 }
 
 function processPastedData(text) {
@@ -7616,14 +7842,14 @@ function addThumbnailsToMissionHeaders() {
                 // If the mission name matches the animal card name, add the thumbnail
                 if (missionName === animalName) {
                     const animalThumbnail = animalCard.querySelector('.animal-thumbnail').cloneNode(true);
-
+                    
                     // Create a wrapper div for the thumbnail
                     const thumbnailWrapper = document.createElement('div');
                     thumbnailWrapper.className = 'mission-thumbnail-wrapper';
                     thumbnailWrapper.appendChild(animalThumbnail);
 
-                    // Insert the thumbnail wrapper directly above the mission name header
-                    missionNameHeader.parentNode.insertBefore(thumbnailWrapper, missionNameHeader);
+                    // Insert the thumbnail wrapper to the left of the mission name header
+                    missionNameHeader.insertAdjacentElement('beforebegin', thumbnailWrapper);
                 }
             });
         }
@@ -7637,6 +7863,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+
+
+
+
 </script>
+
+
+
+
+
 </body>
+
 </html>

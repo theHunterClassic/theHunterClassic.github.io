@@ -4,53 +4,109 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 	<link rel="icon" href="https://i.postimg.cc/ZR6VcL7f/Rg-YCfyr-F-1.png">
 <style>
-   body {
+	body {
         font-family: 'Montserrat', sans-serif;
-        background: #2D2D2D;
+        background: linear-gradient(-45deg, #2D2D2D, #1a1a1a, #2D2D2D, #333333);
+        background-size: 400% 400%;
+        animation: gradientBG 30s ease infinite;
         color: #ecf0f1;
         margin: 0;
         padding: 20px;
+	
     }
-	    .reserve-locations {
-        font-size: 1em;
+	  @keyframes gradientBG {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+	
+		    .reserve-locations {
+        font-size: .85em;
         color: #999;
         margin-top: 20px;
-        font-style: italic;
-    }
+        font-style: italic;}
+		
+.mission-item.completed .reserve-locations
+{
+        font-size: .85em;
+        color: #4a6e3b;
+        margin-top: 20px;
+        font-style: italic;}
 
-    .tab-header {
-        display: flex;
-        gap: 2px;
-        background: #2D2D2D;
-        padding: 0 20px;
-        border-bottom: 2px solid #FF5722;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        justify-content: center; /* Center the tabs */
-        width: 100%; /* Make header fill page width */
-        box-sizing: border-box; /* Include padding in width calculation */
+
+.tab-header {
+    display: flex;
+    gap: 2px;
+    background: none;
+    padding: 0 20px;
+    border-bottom: 4px solid transparent; /* Set border to transparent */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    justify-content: center; /* Center the tabs */
+    width: 100%; /* Make header fill page width */
+    box-sizing: border-box; /* Include padding in width calculation */
+    position: relative; /* Needed for the pseudo-element */
+}
+
+.tab-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; /* Align the glow with the border */
+    left: 0;
+    width: 100%;
+    height: 4px; /* Match border height */
+    background: linear-gradient(90deg, rgba(255, 87, 34, 0) 0%, rgba(255, 87, 34, 1) 50%, rgba(255, 87, 34, 0) 100%);
+    animation: glow-pulse 3s infinite ease-in-out;
+}
+
+/* Smoother Glow Animation */
+@keyframes glow-pulse {
+       from {
+        opacity: 0.8;
+        text-shadow: 0 0 5px #FF8C00,
+                     0 0 10px #FF8C00,
+                     0 0 15px #FFD700;
     }
+    to {
+        opacity: 1;
+        text-shadow: 0 0 10px #FF8C00,
+                     0 0 20px #FF8C00,
+                     0 0 30px #FFD700;
+    }
+}
+
+
 
     .tab {
         padding: 15px 30px;
-        background: #3D3D3D;
-        color: #ecf0f1;
+        background: rgba(61, 61, 61, 0.7);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 87, 34, 0.2);
         cursor: pointer;
-        border: none;
         border-radius: 8px 8px 0 0;
         font-family: 'Montserrat', sans-serif;
         font-weight: 600;
-        transition: all 0.3s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        color: #ecf0f1; 
     }
 
     .tab.active {
-        background: #FF5722;
-        color: white;
+        background: linear-gradient(135deg, #FF5722, #FF8A65);
+        box-shadow: 0 5px 15px rgba(255, 87, 34, 0.3);
+        color: white; 
     }
 
     .tab:hover:not(.active) {
-        background: #4D4D4D;
+        transform: translateY(-2px);
+        background: rgba(77, 77, 77, 0.8);
+        box-shadow: 0 5px 15px rgba(255, 87, 34, 0.2);
     }
 
     .tab-content {
@@ -63,12 +119,14 @@
     }
 
     .mission-pack {
-        background: #3D3D3D;
-        border-radius: 10px;
+        background: rgba(61, 61, 61, 0.7);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 87, 34, 0.3);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         padding: 20px;
         margin: 20px auto;
         max-width: 1200px;
-        border: 2px solid #FF5722;
+        border-radius: 10px;
     }
 
     .animal-cards {
@@ -79,23 +137,25 @@
         max-width: 1200px;
         margin: 0 auto;
     }
-	
-	
-	
-	
-;br {
+    
+    
+    
+    
+    
+    
+    
+.br {
 
   line-height:.6em;/* chrome for instance */
 }
-	
-	
-	
-	
-	
-	
-	
-	
-	
+    
+    
+    
+    
+    
+    
+    
+    
 .animal-card2 {
     width: calc((100% - 80px) / 5); /* 80px accounts for 4 gaps between 5 cards */
     min-width: 200px;
@@ -139,15 +199,12 @@
         animation: glow 1.5s ease-in-out infinite alternate;
         z-index: -1;
     }
-	
-	
-	
-	
-	
-	
-	
-	
-	
+    
+    
+    
+    
+    
+    
 .animal-card {
     width: calc((100% - 80px) / 5); /* 80px accounts for 4 gaps between 5 cards */
     min-width: 200px;
@@ -166,6 +223,7 @@
     position: relative;
 }
 
+
 .animal-card:hover {
     transform: translateY(-5px);
     background: linear-gradient(135deg, rgba(93, 93, 93, 98.0), rgba(55, 55, 55, 98.0) ); /* Add transparency */
@@ -178,114 +236,24 @@
          background: linear-gradient(135deg, rgba(93, 93, 93, 90.1), rgba(55, 55, 55, 90.1) ); /* Add transparency */
         position: relative;
     }
-	    .animal-card.selected::after {
 
-	
-
+    .animal-card.selected::after {
         content: '';
-
-	
-
         position: absolute;
-
-	
-
         top: -3px;
-
-	
-
         left: -3px;
-
-	
-
         right: -3px;
-
-	
-
         bottom: -3px;
-
-	
-
         border-radius: 10px;
-
-	
-
         background: transparent;
-
-	
-
         border: 2px solid #FF5722;
-
-	
-
         animation: glow 1.5s ease-in-out infinite alternate;
-
-	
-
         z-index: -1;
-
-	
-
     }
-
-	
-
-	
 
     @keyframes glow {
-
-	
-
         from {
-
-	
-
-            box-shadow: 0 0 5px #FF5722,
-
-	
-
-                        0 0 10px #FF5722,
-
-	
-
-                        0 0 15px #FF5722;
-
-	
-
-        }
-
-	
-
-        to {
-
-	
-
-            box-shadow: 0 0 10px #FF5722,
-
-	
-
-                        0 0 20px #FF5722,
-
-	
-
-                        0 0 30px #FF5722;
-
-	
-
-        }
-
-	
-
-    } 
-
-    .mission-item.lowest-reward:not(.completed) {
-        position: relative;
-        animation: lowest-reward-glow 1.5s ease-in-out infinite alternate;
-    }
-
-    @keyframes lowest-reward-glow {
-        from {
-            box-shadow: 0 0 5px #FF5722,
+            box-shadow: 0 0 5px #FF5722, 
                         0 0 10px #FF5722,
                         0 0 15px #FF5722;
         }
@@ -297,54 +265,48 @@
     }
 
     .mission-item.lowest-reward .gm-reward {
-        background: linear-gradient(45deg, #FF8C00, #FFD700);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        animation: rewardGlow 1.5s ease-in-out infinite alternate;
-        font-weight: bold;
-        position: relative;
-        z-index: 1;
-        text-rendering: optimizeLegibility;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
+    background: linear-gradient(45deg, #FF8C00, #FFD700);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rewardGlow 1.5s ease-in-out infinite alternate;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
-    .mission-item.lowest-reward {
-        box-shadow: 0 0 15px #FF5722;
-        position: relative;
-        background: linear-gradient(135deg, rgba(207, 116, 56, 0.3), rgba(107, 71, 54, 0.2));
-    }
+/* Add new style for highlighting lowest unchecked mission */
+.mission-item.lowest-reward {
+    box-shadow: 0 0 15px #FF5722;
+    position: relative;
+    background: linear-gradient(135deg, rgba(207, 116, 56, 0.3), rgba(107, 71, 54, 0.2));
+}
 
-    .mission-item.lowest-reward::before {
-        box-shadow: 0 0 10px #FF5722;
-    }
+.mission-item.lowest-reward::before {
+    box-shadow: 0 0 10px #FF5722;
+}
 
-    .mission-item.lowest-reward::after {
-        content: '';
-        position: absolute;
-        top: -3px;
-        left: -3px;
-        right: -3px;
-        bottom: -3px;
-        border-radius: 10px;
-        background: transparent;
-        border: 2px solid #FF5722;
-        animation: glow 1.5s ease-in-out infinite alternate;
-        z-index: -1;
-    }
+.mission-item.lowest-reward::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 10px;
+    background: transparent;
+    border: 2px solid #FF5722;
+    animation: glow 1.5s ease-in-out infinite alternate;
+    z-index: -1;
+}
 
-    @keyframes rewardGlow {
-        0% {
-            text-shadow: 0 0 5px rgba(255, 140, 0, 0.5);
-        }
-        100% {
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
-        }
-    }
-	
+/* Add keyframes for the rewardGlow animation */
 
-.animal-thumbnail {
+
+    .animal-thumbnail {
     width: 150px;
     height: 150px;
     object-fit: cover;
@@ -400,20 +362,65 @@
         background: #4D4D4D;
     }
 
-    .mission-item.completed {
-        background: #2d4d3d;
-        border-left: 3px solid #4CAF50;
-        opacity: 0.8;
+   @keyframes greenGlow {
+    from {
+        text-shadow: 0 0 5px #4CAF50, 
+                    0 0 10px #4CAF50, 
+                    0 0 15px #4CAF50;
     }
+    to {
+        text-shadow: 0 0 10px #4CAF50, 
+                    0 0 20px #4CAF50, 
+                    0 0 30px #4CAF50;
+    }
+}
+
+.mission-item.completed .gm-reward {
+    background: linear-gradient(45deg, #66BB6A, #A5D6A7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: greenGlow 1.5s ease-in-out infinite alternate;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Add new style for highlighting completed mission */
+.mission-item.completed {
+    box-shadow: 0 0 15px #4CAF50;
+    position: relative;
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.3), rgba(102, 187, 106, 0.2));
+}
+
+.mission-item.completed::before {
+    box-shadow: 0 0 10px #4CAF50;
+}
+
+.mission-item.completed::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 10px;
+    background: transparent;
+	 border: 2px solid #4CAF50;
+    animation: greenGlow 1.5s ease-in-out infinite alternate;
+    z-index: -1;
+}
+
 
     .mission-item.completed .mission-objectives {
         text-decoration: line-through;
-        color: #a0a0a0;
+        color: #4a6e3b;
     }
 
-    .mission-item.completed .gm-reward {
-        color: #4CAF50;
-    }
+	
 
     .gm-reward {
         color: #FF5722;
@@ -451,7 +458,8 @@
     }
 
     .mission-checkbox:checked {
-        background-color: #FF5722;
+        background-color: #4a6e3b;
+		border: 2px solid #4CAF50;
     }
 
     .mission-checkbox:checked::before {
@@ -483,7 +491,7 @@
 
 
     h3 {
-        color: #FF5722;
+        color: #d1d1d1;
     }
 
     .list-header {
@@ -499,6 +507,7 @@
     .header-objectives {
         flex: 1;
         margin-right: 20px;
+		
     }
 
     .header-reward {
@@ -547,19 +556,23 @@
 
 	
 
-    /* Add this CSS for the mission pack headers */
-    .mission-pack-header {
-        color: #FF5722;
-        font-size: 1.5em;
-        font-weight: 600;
-        padding: 15px 0;
-        margin-bottom: 20px;
-        border-bottom: 2px solid #FF5722;
-        text-align: center;
-    }
+    
+
+	
+.mission-item.completed .mission-name-header {
+    color: #4a6e3b; 
+    font-weight: bold; 
+    font-size: 0.9em;
+    padding: 5px 0 ;
+    margin-bottom: 5px ;
+    border-bottom: 1px solid #4a6e3b ;
+}
+
+
+	
 
     /* Add this CSS for the mission pack name header */
-    .mission-name-header {
+    .mission-item .mission-name-header {
         color: #FF5722;
         font-weight: bold;
         font-size: 0.9em;
@@ -567,6 +580,11 @@
         margin-bottom: 5px;
         border-bottom: 1px solid #FF5722;
     }
+	
+
+
+
+
 
     /* Add this CSS for the return to top button */
     .return-to-top {
@@ -668,40 +686,7 @@
         box-shadow: none;
     }
 
-    .search-container {
-        margin: 20px auto;
-        max-width: 800px;
-        padding: 0 20px;
-    }
 
-    .search-bar-container {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        padding: 10px 0;
-        margin-bottom: 10px;
-    }
-
-    #mission-search {
-        width: 50%;
-        padding: 12px 20px;
-        font-size: 16px;
-        border: 2px solid #FF5722;
-        border-radius: 8px;
-        background: #3D3D3D;
-        color: #ecf0f1;
-        transition: all 0.3s ease;
-        margin: 0 auto;
-    }
-
-    #mission-search:focus {
-        outline: none;
-        box-shadow: 0 0 10px rgba(255, 87, 34, 0.4);
-    }
-
-    #mission-search::placeholder {
-        color: #999;
-    }
 
     .animal-card:hover .animal-thumbnail svg {
         transform: scale(1.05);
@@ -742,32 +727,71 @@
 
 
 /* Search Bar Styles */
-#mission-search {
-    width: 100%;
-    padding: 8px 16px;
-    margin: 10px 0;
-    font-size: 16px;
-    border: 2px solid #333; /* Charcoal grey border */
-    border-radius: 4px;
-    background-color: #222; /* Dark grey background */
-    color: #fff; /* White text */
-    transition: border-color 0.3s ease;
+/* Wrapper container */
+#mission-search-container {
+    position: relative; /* Enables positioning pseudo-elements */
+    width: 100%; /* Full-width container for the search input */
 }
 
-/* Focus effect to match the theme */
+/* Input field styling */
+#mission-search {
+    width: 100%;
+    padding: 10px 16px 10px 40px; /* Space for the blinking caret */
+    font-size: 16px;
+    border: 2px solid #333; /* Charcoal grey border */
+    border-radius: 24px; /* Rounded corners */
+    background-color: #222; /* Dark grey background */
+    color: #fff; /* White text */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    caret-color: #ff6600; /* Orange caret */
+    box-sizing: border-box;
+	
+	
+}
+
+/* Placeholder styling */
+#mission-search::placeholder {
+    color: rgba(99, 99, 99, 0.9); /* Orange with slight transparency */
+    font-style: italic;
+}
+
+/* Glowing effect when focused */
 #mission-search:focus {
-    border-color: #ff6600; /* Orange border on focus */
+    border-color: #ff6600;
+    box-shadow: 0 0 8px #ff6600, 0 0 15px #ff6600; /* Glowing effect */
     outline: none;
 }
 
-/* Search icon (optional, if you want an icon inside) */
-#search-icon {
+/* Pseudo-caret for blinking effect */
+#mission-search-container::before {
+    content: "";
     position: absolute;
-    left: 10px;
     top: 50%;
+    left: 16px; /* Position the caret within the input */
     transform: translateY(-50%);
-    color: #fff; /* White icon */
+    width: 2px;
+    height: 1.5em;
+    background-color: #ff6600; /* Orange color */
+    animation: cursorBlink 1s steps(2, start) infinite;
+    pointer-events: none; /* Prevent interaction issues */
 }
+
+/* Hide the pseudo-caret when the input is focused */
+#mission-search:focus ~ #mission-search-container::before {
+    display: none;
+}
+
+/* Blinking cursor animation */
+@keyframes cursorBlink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+
 
 /* Button Styling (to replace the topReturnButton with the search bar) */
 .return-to-top {
@@ -830,7 +854,55 @@
             display: block; /* Ensures the GIF behaves like a block */
             margin left: 0px auto; /* Centers the GIF */
         }
+		
+		
+	.mission-item.completed .mission-thumbnail-wrapper img	 {
+ border: 2.5px solid transparent; #4caf50;
+    animation: glow3 1.5s ease-in-out infinite alternate;
+}
+				
+ .mission-item.lowest-reward .mission-thumbnail-wrapper img  {
+ 
+ border: 2.5px solid transparent; #ffae21;
+    animation: glow2 1.5s ease-in-out infinite alternate;
+	
+ 
+ }
+     @keyframes glow3 {
+        from {
+			opacity: 0.9;
+            box-shadow: 0 0 5px  #4caf50, 
+                        0 0 10px #49783d,
+                        0 0 15px #49783d;
+        }
 
+    }
+ 
+ 
+ @keyframes rewardGlow {
+    from {
+        opacity: 0.8;
+        text-shadow: 0 0 5px #FF8C00,
+                     0 0 10px #FF8C00,
+                     0 0 15px #FFD700;
+    }
+    to {
+        opacity: 1;
+        text-shadow: 0 0 10px #FF8C00,
+                     0 0 20px #FF8C00,
+                     0 0 30px #FFD700;
+    }
+}
+    @keyframes glow2 {
+        from {
+			opacity: 0.9;
+            box-shadow: 0 0 5px  #e69c1e, 
+                        0 0 10px #ffae21,
+                        0 0 15px #ffae21;
+        }
+
+    }
+	
 </style>
 </head>
 <body>
@@ -6995,14 +7067,91 @@ background-size: cover; background-position: center;">
 </div>
 
 
-<script>
 
-document.querySelectorAll('.mission-objectives').forEach(function(element) {
+<script>
+document.querySelectorAll('.mission-objectives').forEach(function (element) {
     element.innerHTML = element.innerHTML
-        .replace(/(?<=[a-zA-Z])\./g, '.<br><br>')  // Add line break after period only if preceded by a letter
-        
+        .replace(/([a-zA-Z0-9])\.\s*(?=[A-Z])/g, '$1.<br><br>')  // Handle regular sentence endings
+        .replace(/(\))\.\s*(?=[A-Z])/g, '$1.<br><br>');           // Handle sentences ending with " ). "
 });
 
+
+
+
+// Example to apply the completed class
+/* let missionHeader = document.querySelector('.mission-name-header');
+missionHeader.classList.add('completed');
+
+// If the class is added dynamically, you can also set styles directly
+missionHeader.style.color = '#4a6e3b';
+missionHeader.style.borderBottom = '1px solid #4a6e3b'; */
+
+
+function toggleMissions(missionId) {
+    const missionList = document.getElementById(missionId);
+    if (!missionList) {
+        console.error(`Mission list with id ${missionId} not found`);
+        return;
+    }
+
+    const isCurrentlyVisible = missionList.style.display === "block";
+
+    // Remove selected class from all cards
+    const allCards = document.querySelectorAll('.animal-card');
+    allCards.forEach(card => card.classList.remove('selected'));
+
+    // Hide all mission lists and remove existing return buttons 
+    const allMissionLists = document.querySelectorAll('.mission-list');
+    allMissionLists.forEach(list => {
+        list.style.display = "none";
+        // Remove any existing return buttons
+        list.querySelectorAll('.return-to-top').forEach(btn => btn.remove());
+    });
+
+    if (!isCurrentlyVisible) {
+        // Add selected class to clicked card
+        const clickedCard = event.currentTarget;
+        clickedCard.classList.add('selected');
+
+        // Show the mission list
+        missionList.style.display = "block";
+
+        // Add top return button (only once)
+        const topReturnButton = document.createElement('div');
+        topReturnButton.className = 'return-to-top';
+        topReturnButton.innerHTML = `
+            <svg viewBox="0 0 24 24">
+                <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+            </svg>
+            Return to Selected Mission Pack
+        `;
+        topReturnButton.onclick = returnToSelected;
+        missionList.insertBefore(topReturnButton, missionList.firstChild);
+
+        // Add bottom return button (only once)
+        const bottomReturnButton = topReturnButton.cloneNode(true);
+        bottomReturnButton.onclick = returnToSelected;
+        missionList.appendChild(bottomReturnButton);
+
+        // Rest of your existing code...
+        missionList.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+
+        highlightLowestRewardMissions(missionList);
+    }
+}
+
+function returnToSelected() {
+    const selectedCard = document.querySelector('.animal-card.selected, .animal-card2.selected');
+    if (selectedCard) {
+        selectedCard.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+        });
+    }
+}
 
 function updateBestAvailableMissions(missionList) {
     // Get all uncompleted missions from each pack
@@ -7126,13 +7275,13 @@ function updateBestAvailableMissions(missionList) {
     };
     missionList.appendChild(topReturnButton);
 
-    // Add search bar before header
+    // Add search bar
     const searchBarContainer = document.createElement('div');
     searchBarContainer.className = 'search-bar-container';
     const searchBar = document.createElement('input');
     searchBar.type = 'text';
     searchBar.id = 'mission-search';
-    searchBar.placeholder = 'Search missions...';
+    searchBar.placeholder = 'Sort missions (type "best" to sort by best available)';
     searchBarContainer.appendChild(searchBar);
     missionList.appendChild(searchBarContainer);
 
@@ -7141,21 +7290,124 @@ function updateBestAvailableMissions(missionList) {
         const searchTerm = this.value.toLowerCase();
         const missionItems = missionList.querySelectorAll('.mission-item');
         
-        missionItems.forEach(mission => {
-            const objectives = mission.querySelector('.mission-objectives').textContent.toLowerCase();
-            const reserveElem = mission.querySelector('.reserve-locations');
-            const reserve = reserveElem ? reserveElem.textContent.toLowerCase() : '';
-            const reward = mission.querySelector('.gm-reward').textContent.toLowerCase();
-            
-            // Show/hide based on if text matches search
-            if (objectives.includes(searchTerm) || 
-                reserve.includes(searchTerm) || 
-                reward.includes(searchTerm)) {
-                mission.style.display = '';
-            } else {
+        if (searchTerm === 'best') {
+            // Hide all missions first
+            missionItems.forEach(mission => {
                 mission.style.display = 'none';
-            }
-        });
+            });
+            
+            // Find and show lowest reward missions from each pack
+            const missionPacks = {
+               'Advanced Firearms Missions': [],
+    'Aimpoint Missions': [],
+    'Alpine Ibex Missions': [],
+    'Anschutz Missions': [],
+    'Arctic Fox Missions': [],
+    'Axis Deer Missions': [],
+    'Banteng Missions': [],
+    'Bighorn Sheep Missions': [],
+    'Bison Missions': [],
+    'Black Bear Missions': [],
+    'Blacktail Deer Missions': [],
+    'Blaser Missions': [],
+    'Bobcat Missions': [],
+    'Brown Bear Missions': [],
+    'Bushrangers Run Travel Missions': [],
+    'Canada Goose Missions': [],
+    'Cottontail Rabbit Missions': [],
+    'Coyote Missions': [],
+    'Dall Sheep Missions': [],
+    'Duck Missions': [],
+    'Eurasian Lynx Missions': [],
+    'European Rabbit Missions': [],
+    'Fallow Deer Missions': [],
+    'Feral Goat Missions': [],
+    'Feral Hog Missions': [],
+    'Grey Wolf Missions': [],
+    'Grizzly Bear Missions': [],
+    'Hemmeldal Travel Missions': [],
+    'Hirschfelden Travel Missions': [],
+    'Laura Francese Missions': [],
+    'Magpie Goose Missions': [],
+    'Mallard Missions': [],
+    'Moose Missions': [],
+    'Mule Deer Missions': [],
+    'Nosler Missions': [],
+    'Parker Bows Missions': [],
+    'Pheasant Missions': [],
+    'Piccabeen Bay Travel Missions': [],
+    'Polar Bear Missions': [],
+    'Ptarmigan Missions': [],
+    'Puma Missions': [],
+    'Red Deer Missions': [],
+    'Red Fox Missions': [],
+    'Red Kangaroo Missions': [],
+    'Redfeather Falls Travel Missions': [],
+    'Reindeer Missions': [],
+    'Rocky Mountain Elk Missions': [],
+    'Roe Deer Missions': [],
+    'Roosevelt Elk Missions': [],
+    'Rougarou Bayou Travel Missions': [],
+    'Rusa Deer Missions': [],
+    'Sambar Deer Missions': [],
+    'Settler Creeks Travel Missions': [],
+    'Shotgun Missions': [],
+    'Sitka Deer Missions': [],
+    'Smoke Pole Missions': [],
+    'Snow Goose Missions': [],
+    'Snowshoe Hare Missions': [],
+    'Tenpoint Missions': [],
+    'The Boone And Crockett Club Missions': [],
+    'Timbergold Trails Travel Missions': [],
+    'Traditional Bow Missions': [],
+    'Turkey Missions': [],
+    'Val-des-Bois Travel Missions': [],
+    'Water Buffalo Missions': [],
+    'Whitehart Sightseeing Missions': [],
+    'Whitehart Travel Missions': [],
+    'Whiterime Ridge Travel Missions': [],
+    'Whitetail Deer Missions': [],
+    'Wild Boar Missions': [],
+    'Wood Grouse Missions': []
+            };
+            
+            // Collect uncompleted missions by pack
+            missionItems.forEach(mission => {
+                if (!mission.classList.contains('completed')) {
+                    const packName = mission.querySelector('.mission-name-header').textContent.trim();
+                    const reward = parseInt(mission.querySelector('.gm-reward').textContent.replace(/[^0-9]/g, ''));
+                    missionPacks[packName].push({mission, reward});
+                }
+            });
+            
+            // Show lowest reward mission from each pack
+            Object.values(missionPacks).forEach(missions => {
+                if (missions.length > 0) {
+                    const lowestReward = Math.min(...missions.map(m => m.reward));
+                    missions.forEach(({mission, reward}) => {
+                        if (reward === lowestReward) {
+                            mission.style.display = '';
+                        }
+                    });
+                }
+            });
+        } else {
+            // Regular search behavior
+            missionItems.forEach(mission => {
+                const objectives = mission.querySelector('.mission-objectives').textContent.toLowerCase();
+                const reserveElem = mission.querySelector('.reserve-locations');
+                const reserve = reserveElem ? reserveElem.textContent.toLowerCase() : '';
+                const reward = mission.querySelector('.gm-reward').textContent.toLowerCase();
+                
+                if (objectives.includes(searchTerm) || 
+                    reserve.includes(searchTerm) || 
+                    reward.includes(searchTerm)) {
+                    mission.style.display = '';
+                } else {
+                    mission.style.display = 'none';
+                }
+            });
+        }
     });
 
     // Add list header
@@ -7238,7 +7490,7 @@ function updateBestAvailableMissions(missionList) {
     }
 }
 
-function toggleFilteredMissions(reserveId) {
+function toggleFilteredMissions(reserveId, keepSearch = false) {
     const missionList = document.getElementById(reserveId);
     
     if (!missionList) {
@@ -7256,10 +7508,17 @@ function toggleFilteredMissions(reserveId) {
     const allMissionLists = document.querySelectorAll('#mission-filters .mission-list');
     allMissionLists.forEach(list => list.style.display = "none");
     
-    if (!isCurrentlyVisible) {
+    if (!isCurrentlyVisible || !keepSearch) {
+        // Only clear search if we're clicking a new card and not keeping search
+        if (!keepSearch && event?.type === 'click') { 
+            clearSearchTerm();
+        }
+        
         // Add selected class to clicked card  
-        const clickedCard = event.currentTarget;
-        clickedCard.classList.add('selected');
+        const clickedCard = event?.currentTarget;
+        if (clickedCard) {
+            clickedCard.classList.add('selected');
+        }
         
         if (reserveId === 'best-available-missions') {
             updateBestAvailableMissions(missionList);
@@ -7274,7 +7533,6 @@ function toggleFilteredMissions(reserveId) {
         // Clear existing missions BEFORE adding new ones
         missionList.innerHTML = '';
 
-        // Rest of function remains the same...
         // Add top return button
         const topReturnButton = document.createElement('div');
         topReturnButton.className = 'return-to-top';
@@ -7295,35 +7553,225 @@ function toggleFilteredMissions(reserveId) {
         };
         missionList.appendChild(topReturnButton);
 
-        // Add search bar before header
+// Add search bar
         const searchBarContainer = document.createElement('div');
         searchBarContainer.className = 'search-bar-container';
         const searchBar = document.createElement('input');
         searchBar.type = 'text';
         searchBar.id = 'mission-search';
-        searchBar.placeholder = 'Search missions...';
+        searchBar.placeholder = 'Search missions (type "best" to sort by best available)';
         searchBarContainer.appendChild(searchBar);
         missionList.appendChild(searchBarContainer);
 
-        // Add event listener for search
         searchBar.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
+            const searchTerm = searchBar.value.toLowerCase();
             const missionItems = missionList.querySelectorAll('.mission-item');
-            missionItems.forEach(mission => {
-                const objectives = mission.querySelector('.mission-objectives').textContent.toLowerCase();
-                const reserveElem = mission.querySelector('.reserve-locations');
-                const reserve = reserveElem ? reserveElem.textContent.toLowerCase() : '';
-                const reward = mission.querySelector('.gm-reward').textContent.toLowerCase();
-
-                if (objectives.includes(searchTerm) || 
-                    reserve.includes(searchTerm) || 
-                    reward.includes(searchTerm)) {
-                    mission.style.display = '';
-                } else {
+            
+            if (searchTerm === 'best') {
+                // Hide all missions first
+                missionItems.forEach(mission => {
                     mission.style.display = 'none';
-                }
-            });
+                });
+                
+                // Find and show lowest reward missions from each pack
+                const missionPacks = {
+                     'Advanced Firearms Missions': [],
+    'Aimpoint Missions': [],
+    'Alpine Ibex Missions': [],
+    'Anschutz Missions': [],
+    'Arctic Fox Missions': [],
+    'Axis Deer Missions': [],
+    'Banteng Missions': [],
+    'Bighorn Sheep Missions': [],
+    'Bison Missions': [],
+    'Black Bear Missions': [],
+    'Blacktail Deer Missions': [],
+    'Blaser Missions': [],
+    'Bobcat Missions': [],
+    'Brown Bear Missions': [],
+    'Bushrangers Run Travel Missions': [],
+    'Canada Goose Missions': [],
+    'Cottontail Rabbit Missions': [],
+    'Coyote Missions': [],
+    'Dall Sheep Missions': [],
+    'Duck Missions': [],
+    'Eurasian Lynx Missions': [],
+    'European Rabbit Missions': [],
+    'Fallow Deer Missions': [],
+    'Feral Goat Missions': [],
+    'Feral Hog Missions': [],
+    'Grey Wolf Missions': [],
+    'Grizzly Bear Missions': [],
+    'Hemmeldal Travel Missions': [],
+    'Hirschfelden Travel Missions': [],
+    'Laura Francese Missions': [],
+    'Magpie Goose Missions': [],
+    'Mallard Missions': [],
+    'Moose Missions': [],
+    'Mule Deer Missions': [],
+    'Nosler Missions': [],
+    'Parker Bows Missions': [],
+    'Pheasant Missions': [],
+    'Piccabeen Bay Travel Missions': [],
+    'Polar Bear Missions': [],
+    'Ptarmigan Missions': [],
+    'Puma Missions': [],
+    'Red Deer Missions': [],
+    'Red Fox Missions': [],
+    'Red Kangaroo Missions': [],
+    'Redfeather Falls Travel Missions': [],
+    'Reindeer Missions': [],
+    'Rocky Mountain Elk Missions': [],
+    'Roe Deer Missions': [],
+    'Roosevelt Elk Missions': [],
+    'Rougarou Bayou Travel Missions': [],
+    'Rusa Deer Missions': [],
+    'Sambar Deer Missions': [],
+    'Settler Creeks Travel Missions': [],
+    'Shotgun Missions': [],
+    'Sitka Deer Missions': [],
+    'Smoke Pole Missions': [],
+    'Snow Goose Missions': [],
+    'Snowshoe Hare Missions': [],
+    'Tenpoint Missions': [],
+    'The Boone And Crockett Club Missions': [],
+    'Timbergold Trails Travel Missions': [],
+    'Traditional Bow Missions': [],
+    'Turkey Missions': [],
+    'Val-des-Bois Travel Missions': [],
+    'Water Buffalo Missions': [],
+    'Whitehart Sightseeing Missions': [],
+    'Whitehart Travel Missions': [],
+    'Whiterime Ridge Travel Missions': [],
+    'Whitetail Deer Missions': [],
+    'Wild Boar Missions': [],
+    'Wood Grouse Missions': []
+                };
+                
+       const originalPacks = [
+                         'advanced-firearms-missions',
+'aimpoint-missions',
+'alpine-ibex-missions',
+'anschutz-missions',
+'arctic-fox-missions',
+'axis-deer-missions',
+'banteng-missions',
+'bighorn-sheep-missions',
+'bison-missions',
+'black-bear-missions',
+'blacktail-deer-missions',
+'blaser-missions',
+'bobcat-missions',
+'brown-bear-missions',
+'bushrangers-run-travel-missions',
+'canada-goose-missions',
+'cottontail-rabbit-missions',
+'coyote-missions',
+'dall-sheep-missions',
+'duck-missions',
+'eurasian-lynx-missions',
+'european-rabbit-missions',
+'fallow-deer-missions',
+'feral-goat-missions',
+'feral-hog-missions',
+'grey-wolf-missions',
+'grizzly-bear-missions',
+'hemmeldal-travel-missions',
+'hirschfelden-travel-missions',
+'laura-francese-missions',
+'magpie-goose-missions',
+'mallard-missions',
+'moose-missions',
+'mule-deer-missions',
+'nosler-missions',
+'parker-bows-missions',
+'pheasant-missions',
+'piccabeen-bay-travel-missions',
+'polar-bear-missions',
+'ptarmigan-missions',
+'puma-missions',
+'red-deer-missions',
+'red-fox-missions',
+'red-kangaroo-missions',
+'redfeather-falls-travel-missions',
+'reindeer-missions',
+'rocky-mountain-elk-missions',
+'roe-deer-missions',
+'roosevelt-elk-missions',
+'rougarou-bayou-travel-missions',
+'rusa-deer-missions',
+'sambar-deer-missions',
+'settler-creeks-travel-missions',
+'shotgun-missions',
+'sitka-deer-missions',
+'smoke-pole-missions',
+'snow-goose-missions',
+'snowshoe-hare-missions',
+'tenpoint-missions',
+'the-boone-and-crockett-club-missions',
+'timbergold-trails-travel-missions',
+'traditional-bow-missions',
+'turkey-missions',
+'val-des-bois-travel-missions',
+'water-buffalo-missions',
+'whitehart-sightseeing-missions',
+'whitehart-travel-missions',
+'whiterime-ridge-travel-missions',
+'whitetail-deer-missions',
+'wild-boar-missions',
+'wood-grouse-missions'
+        ];
+        
+        // Collect uncompleted missions from original packs
+        originalPacks.forEach(packId => {
+            const pack = document.getElementById(packId);
+            if (pack) {
+                const packName = pack.querySelector('.mission-item .mission-name-header').textContent.trim();
+                const uncompletedMissions = Array.from(pack.querySelectorAll('.mission-item:not(.completed)'));
+                
+                uncompletedMissions.forEach(mission => {
+                    const reward = parseInt(mission.querySelector('.gm-reward').textContent.replace(/[^0-9]/g, ''));
+                    const objectives = mission.querySelector('.mission-objectives').textContent;
+                    missionPacks[packName].push({
+                        reward: reward,
+                        objectives: objectives
+                    });
+                });
+            }
         });
+        
+        // Show matching lowest reward missions in current filtered list
+        Object.entries(missionPacks).forEach(([packName, missions]) => {
+            if (missions.length > 0) {
+                const lowestReward = Math.min(...missions.map(m => m.reward));
+                const lowestMissionObjectives = missions.find(m => m.reward === lowestReward).objectives;
+                
+                // Find and show matching missions in filtered view
+                missionItems.forEach(mission => {
+                    if (mission.querySelector('.mission-objectives').textContent === lowestMissionObjectives) {
+                        mission.style.display = '';
+                    }
+                });
+            }
+        });
+    } else {
+        // Regular search behavior
+        missionItems.forEach(mission => {
+            const objectives = mission.querySelector('.mission-objectives').textContent.toLowerCase();
+            const reserveElem = mission.querySelector('.reserve-locations');
+            const reserve = reserveElem ? reserveElem.textContent.toLowerCase() : '';
+            const reward = mission.querySelector('.gm-reward').textContent.toLowerCase();
+            
+            if (objectives.includes(searchTerm) || 
+                reserve.includes(searchTerm) || 
+                reward.includes(searchTerm)) {
+                mission.style.display = '';
+            } else {
+                mission.style.display = 'none';
+            }
+        });
+    }
+});
 
         // Add list header
         const header = document.createElement('div');
@@ -7340,7 +7788,7 @@ function toggleFilteredMissions(reserveId) {
         
         // Get mission packs and their missions
         const missionPacks = [
-		       'advanced-firearms-missions',
+		     'advanced-firearms-missions',
 'aimpoint-missions',
 'alpine-ibex-missions',
 'anschutz-missions',
@@ -7500,34 +7948,46 @@ function toggleComplete(element) {
     const missionItem = checkbox.closest('.mission-item');
     if (checkbox.checked) {
         missionItem.classList.add('completed');
+        
+        // Only hide completed missions in filtered views
+        const filteredList = missionItem.closest('.mission-list');
+        if (filteredList && (
+            filteredList.id === 'best-available-missions' ||
+            filteredList.id === 'whitehart-missions' ||
+            filteredList.id === 'Loggers-missions'
+        )) {
+            // Apply animation and hide only in filtered views
+            missionItem.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            missionItem.style.opacity = '0';
+            missionItem.style.transform = 'translateX(-100%)';
+            
+            setTimeout(() => {
+                missionItem.style.display = 'none';
+            }, 300);
+        }
     } else {
         missionItem.classList.remove('completed');
+        missionItem.style.opacity = '1';
+        missionItem.style.transform = 'translateX(0)';
+        missionItem.style.display = '';
     }
     
-    // Get the mission list ID and clear/update it
+    // Get the mission list ID and update it
     const missionList = missionItem.closest('.mission-list');
     if (missionList) {
         const listId = missionList.id;
         
-        // If it's best available missions, update that list
         if (listId === 'best-available-missions') {
             updateBestAvailableMissions(missionList);
-        } else {
-            // For other lists, rebuild the filtered list immediately
-            const clickedCard = document.querySelector(`.animal-card2[onclick*="${listId}"]`);
-            if (clickedCard) {
-                // Force display block to keep list visible
-                missionList.style.display = "block";
-                
-                // Clear and rebuild the filtered list
-                toggleFilteredMissions(listId);
-                
-                // Keep list visible after rebuild
-                missionList.style.display = "block";
-            }
-            // Update the lowest reward highlighting
-            highlightLowestRewardMissions(missionList);
+        } else if (listId === 'whitehart-missions' || listId === 'Loggers-missions') {
+            // Force display block to keep filtered list visible
+            missionList.style.display = "block";
+            toggleFilteredMissions(listId, true);
+            missionList.style.display = "block";
         }
+        
+        // Update lowest reward highlighting
+        highlightLowestRewardMissions(missionList);
         
         // Update mission counter
         updateMissionCounter(listId);
@@ -7546,17 +8006,25 @@ function toggleComplete(element) {
                 const matchingCheckbox = matchingMission.querySelector('.mission-checkbox');
                 if (matchingCheckbox.checked !== checkbox.checked) {
                     matchingCheckbox.checked = checkbox.checked;
-                    if (checkbox.checked) {
-                        matchingMission.classList.add('completed');
-                    } else {
-                        matchingMission.classList.remove('completed');
+                    matchingMission.classList.toggle('completed', checkbox.checked);
+                    
+                    // Only hide in filtered views
+                    if (list.id === 'best-available-missions' || 
+                        list.id === 'whitehart-missions' || 
+                        list.id === 'Loggers-missions') {
+                        if (checkbox.checked) {
+                            matchingMission.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                            matchingMission.style.opacity = '0';
+                            matchingMission.style.transform = 'translateX(-100%)';
+                            setTimeout(() => {
+                                matchingMission.style.display = 'none';
+                            }, 300);
+                        }
                     }
                 }
             });
             
-            // Update the filtered list if necessary
-            const listId = list.id;
-            if (listId === 'best-available-missions') {
+            if (list.id === 'best-available-missions') {
                 updateBestAvailableMissions(list);
             } else {
                 highlightLowestRewardMissions(list);
@@ -7569,7 +8037,7 @@ function highlightLowestRewardMissions(missionList) {
     const missionPacks = {};
     
     // First collect all missions from original mission lists
-    [       'advanced-firearms-missions',
+    [     'advanced-firearms-missions',
 'aimpoint-missions',
 'alpine-ibex-missions',
 'anschutz-missions',
@@ -7729,6 +8197,20 @@ function updateMissionCounter(missionId) {
     }
 }
 
+function clearSearchTerm() {
+    const searchBar = document.getElementById('mission-search');
+    if (!searchBar) return; // Add guard clause if search bar not found
+    
+    searchBar.value = ''; // Clear the search bar
+    currentSearchTerm = ''; // Reset the stored search term
+
+    // Reset mission list visibility
+    const allMissions = document.querySelectorAll('#mission-filters .mission-list .mission-item');
+    allMissions.forEach(mission => {
+        mission.style.display = ''; // Show all missions again
+    });
+}
+
 // Add click handlers to mission items
 document.addEventListener('DOMContentLoaded', function() {
     const missionItems = document.querySelectorAll('.mission-item');
@@ -7743,7 +8225,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize counters for all mission lists
     [
 	
-	       'advanced-firearms-missions',
+	     'advanced-firearms-missions',
 'aimpoint-missions',
 'alpine-ibex-missions',
 'anschutz-missions',
@@ -7819,11 +8301,27 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 	
 	    // Reset all checkboxes on page load
-    const allCheckboxes = document.querySelectorAll('.mission-checkbox'); 
+
+	
+
+    const allCheckboxes = document.querySelectorAll('.mission-checkbox');
+
+	
+
     allCheckboxes.forEach(checkbox => {
+
+	
+
         checkbox.checked = false;
+
+	
+
         checkbox.closest('.mission-item')?.classList.remove('completed');
-    });
+
+	
+
+    }); 
+	
 
     // Add handler for the paste textarea
     const dataPasteArea = document.querySelector('.data-paste');
@@ -7838,7 +8336,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add initial highlighting of lowest reward missions in original mission packs
     const missionPacks = [
-            'advanced-firearms-missions',
+           'advanced-firearms-missions',
 'aimpoint-missions',
 'alpine-ibex-missions',
 'anschutz-missions',
@@ -7942,7 +8440,6 @@ function loadMissionData() {
             toggleComplete(checkbox);
         }
     });
-
     const dataPasteArea = document.querySelector('.data-paste');
     const text = dataPasteArea.value;
     
@@ -7955,7 +8452,7 @@ function loadMissionData() {
 
     // Create a mapping of mission pack names to their IDs
     const missionPacks = {
-  'Advanced Firearms Missions': 'advanced-firearms-missions',
+ 'Advanced Firearms Missions': 'advanced-firearms-missions',
 'Aimpoint Missions': 'aimpoint-missions',
 'Alpine Ibex Missions': 'alpine-ibex-missions',
 'Anschutz Missions': 'anschutz-missions',
@@ -7999,7 +8496,7 @@ function loadMissionData() {
 'Red Deer Missions': 'red-deer-missions',
 'Red Fox Missions': 'red-fox-missions',
 'Red Kangaroo Missions': 'red-kangaroo-missions',
-'Redfeather Falls Travel Missions (Single Player)': 'redfeather-falls-travel-missions',
+'Redfeather Falls Travel Missions': 'redfeather-falls-travel-missions',
 'Reindeer Missions': 'reindeer-missions',
 'Rocky Mountain Elk Missions': 'rocky-mountain-elk-missions',
 'Roe Deer Missions': 'roe-deer-missions',
@@ -8109,141 +8606,149 @@ function openTab(tabName) {
     event.currentTarget.classList.add('active');
 }
 
-function toggleMissions(missionId) {
-    const missionList = document.getElementById(missionId);
-    
-    if (!missionList) {
-        console.error(`Mission list with id ${missionId} not found`);
-        return;
-    }
-    
-    const isCurrentlyVisible = missionList.style.display === "block";
-    
-    // Remove selected class from all cards
-    const allCards = document.getElementsByClassName('animal-card');
-    for (let card of allCards) {
-        card.classList.remove('selected');
-    }
-    
-    // Hide all mission lists first
-    const allMissionLists = document.getElementsByClassName('mission-list');
-    for (let list of allMissionLists) {
-        list.style.display = "none";
-    }
-    
-    // If the clicked mission list wasn't visible before, show it and highlight card
-    if (!isCurrentlyVisible) {
-        // Only add selected class and show content if this is a new card click
-        if (event && event.currentTarget.classList.contains('animal-card')) {
-            // Add selected class to clicked card
-            const clickedCard = event.currentTarget;
-            clickedCard.classList.add('selected');
-            
-            // Check if header already exists before adding
-            let header = missionList.querySelector('.mission-pack-header');
-            if (!header) {
-                header = document.createElement('div');
-                header.className = 'mission-pack-header';
-                const cardTitle = clickedCard.querySelector('h3').textContent;
-                header.textContent = cardTitle;
-                missionList.insertBefore(header, missionList.firstChild);
-            }
-            
-            // Check if top return button exists before adding
-            let topReturnButton = missionList.querySelector('.return-to-top');
-            if (!topReturnButton) {
-                topReturnButton = document.createElement('div');
-                topReturnButton.className = 'return-to-top';
-                topReturnButton.innerHTML = `
-                    <svg viewBox="0 0 24 24">
-                        <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
-                    </svg>
-                    Return to Selected Mission
-                `;
-                topReturnButton.onclick = returnToSelected;
-                missionList.insertBefore(topReturnButton, missionList.firstChild);
-            }
-
-            // Check if bottom return button exists before adding
-            let bottomReturnButton = Array.from(missionList.querySelectorAll('.return-to-top')).pop();
-            if (!bottomReturnButton || bottomReturnButton === topReturnButton) {
-                bottomReturnButton = document.createElement('div');
-                bottomReturnButton.className = 'return-to-top';
-                bottomReturnButton.innerHTML = `
-                    <svg viewBox="0 0 24 24">
-                        <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
-                    </svg>
-                    Return to Selected Mission
-                `;
-                bottomReturnButton.onclick = returnToSelected;
-                missionList.appendChild(bottomReturnButton);
-            }
-        }
-
-        // Show the mission list
-        missionList.style.display = "block";
-        
-        // Scroll to the mission list
-        missionList.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
-    }
-}
-
 // Setup the search functionality
 let currentSearchTerm = ''; // Global variable to store search term
 
 function setupSearch() {
     const searchBar = document.getElementById('mission-search');
     if (searchBar) {
+        // Change placeholder text
+        searchBar.placeholder = "Search missions or type 'best' to see lowest rewards...";
         // Function to perform the search
         const performSearch = () => {
             const searchTerm = searchBar.value.toLowerCase();
             currentSearchTerm = searchTerm; // Store the search term
             const allMissions = document.querySelectorAll('#mission-filters .mission-list .mission-item');
             
-            allMissions.forEach(mission => {
-                const objectives = mission.querySelector('.mission-objectives').textContent.toLowerCase();
-                const reserve = mission.querySelector('.reserve-locations').textContent.toLowerCase();
-                const reward = mission.querySelector('.gm-reward').textContent.toLowerCase();
-                
-                // Show/hide based on if text matches search
-                if (objectives.includes(searchTerm) || 
-                    reserve.includes(searchTerm) || 
-                    reward.includes(searchTerm)) {
-                    mission.style.display = '';
-                } else {
+            if (searchTerm === 'best') {
+                // Hide all missions first
+                allMissions.forEach(mission => {
                     mission.style.display = 'none';
-                }
-            });
+                });
+                
+                // Find and show lowest reward missions from each pack
+                const missionPacks = {
+                            'Advanced Firearms Missions': [],
+    'Aimpoint Missions': [],
+    'Alpine Ibex Missions': [],
+    'Anschutz Missions': [],
+    'Arctic Fox Missions': [],
+    'Axis Deer Missions': [],
+    'Banteng Missions': [],
+    'Bighorn Sheep Missions': [],
+    'Bison Missions': [],
+    'Black Bear Missions': [],
+    'Blacktail Deer Missions': [],
+    'Blaser Missions': [],
+    'Bobcat Missions': [],
+    'Brown Bear Missions': [],
+    'Bushrangers Run Travel Missions': [],
+    'Canada Goose Missions': [],
+    'Cottontail Rabbit Missions': [],
+    'Coyote Missions': [],
+    'Dall Sheep Missions': [],
+    'Duck Missions': [],
+    'Eurasian Lynx Missions': [],
+    'European Rabbit Missions': [],
+    'Fallow Deer Missions': [],
+    'Feral Goat Missions': [],
+    'Feral Hog Missions': [],
+    'Grey Wolf Missions': [],
+    'Grizzly Bear Missions': [],
+    'Hemmeldal Travel Missions': [],
+    'Hirschfelden Travel Missions': [],
+    'Laura Francese Missions': [],
+    'Magpie Goose Missions': [],
+    'Mallard Missions': [],
+    'Moose Missions': [],
+    'Mule Deer Missions': [],
+    'Nosler Missions': [],
+    'Parker Bows Missions': [],
+    'Pheasant Missions': [],
+    'Piccabeen Bay Travel Missions': [],
+    'Polar Bear Missions': [],
+    'Ptarmigan Missions': [],
+    'Puma Missions': [],
+    'Red Deer Missions': [],
+    'Red Fox Missions': [],
+    'Red Kangaroo Missions': [],
+    'Redfeather Falls Travel Missions': [],
+    'Reindeer Missions': [],
+    'Rocky Mountain Elk Missions': [],
+    'Roe Deer Missions': [],
+    'Roosevelt Elk Missions': [],
+    'Rougarou Bayou Travel Missions': [],
+    'Rusa Deer Missions': [],
+    'Sambar Deer Missions': [],
+    'Settler Creeks Travel Missions': [],
+    'Shotgun Missions': [],
+    'Sitka Deer Missions': [],
+    'Smoke Pole Missions': [],
+    'Snow Goose Missions': [],
+    'Snowshoe Hare Missions': [],
+    'TenPoint Missions': [],
+    'The Boone and Crockett Club Missions': [],
+    'Timbergold Trails Travel Missions': [],
+    'Traditional Bow Missions': [],
+    'Turkey Missions': [],
+    'Val des Bois Travel Missions': [],
+    'Water Buffalo Missions': [],
+    'Whitehart Sightseeing Missions': [],
+    'Whitehart Travel Missions': [],
+    'Whiterime Ridge Travel Missions': [],
+    'Whitetail Deer Missions': [],
+    'Wild Boar Missions': [],
+    'Wood Grouse Missions': []
+                };
+                
+                // Collect uncompleted missions by pack
+                allMissions.forEach(mission => {
+                    if (!mission.classList.contains('completed')) {
+                        const packName = mission.querySelector('.mission-name-header').textContent.trim();
+                        const reward = parseInt(mission.querySelector('.gm-reward').textContent.replace(/[^0-9]/g, ''));
+                        missionPacks[packName].push({mission, reward});
+                    }
+                });
+                
+                // Show lowest reward mission from each pack
+                Object.values(missionPacks).forEach(missions => {
+                    if (missions.length > 0) {
+                        const lowestReward = Math.min(...missions.map(m => m.reward));
+                        missions.forEach(({mission, reward}) => {
+                            if (reward === lowestReward) {
+                                mission.style.display = '';
+                            }
+                        });
+                    }
+                });
+            } else {
+                // Regular search behavior
+                allMissions.forEach(mission => {
+                    const objectives = mission.querySelector('.mission-objectives').textContent.toLowerCase();
+                    const reserve = mission.querySelector('.reserve-locations').textContent.toLowerCase();
+                    const reward = mission.querySelector('.gm-reward').textContent.toLowerCase();
+                    
+                    if (objectives.includes(searchTerm) || 
+                        reserve.includes(searchTerm) || 
+                        reward.includes(searchTerm)) {
+                        mission.style.display = '';
+                    } else {
+                        mission.style.display = 'none';
+                    }
+                });
+            }
         };
 
-        // Search on input (real-time)
+        // Add event listeners for search input
         searchBar.addEventListener('input', performSearch);
-
-        // Search on Enter key press
-        searchBar.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter') {
-                performSearch();
-                e.preventDefault(); // Prevent default form submission if in a form
-            }
-        });
-
-        // Update search results when an animal-card is clicked
-        const animalCards = document.querySelectorAll('.animal-card2');
-        animalCards.forEach(card => {
-            card.addEventListener('click', () => {
-                searchBar.value = currentSearchTerm; // Keep the search term in the search bar
-                performSearch(); // Reapply the search term to the new list
-            });
-        });
     }
 }
 
 // Function to clear the search term when required (on animal card click or reset)
 function clearSearchTerm() {
     const searchBar = document.getElementById('mission-search');
+    if (!searchBar) return; // Add guard clause if search bar not found
+    
     searchBar.value = ''; // Clear the search bar
     currentSearchTerm = ''; // Reset the stored search term
 
@@ -8312,4 +8817,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 </body>
-</html>
+</html>	

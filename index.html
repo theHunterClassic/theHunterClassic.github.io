@@ -85,7 +85,7 @@
 
 
     .tab {
-        padding: 15px 30px;
+        padding: 15px 40px;
         background: rgba(61, 61, 61, 0.7);
         backdrop-filter: blur(5px);
         border: 1px solid rgba(255, 87, 34, 0.2);
@@ -95,6 +95,7 @@
         font-weight: 600;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         color: #ecf0f1; 
+		font-size: 16px;
     }
 
     .tab.active {
@@ -119,7 +120,7 @@
     }
 
     .mission-pack {
-        background: rgba(61, 61, 61, 0.7);
+        background: rgba(61, 61, 61, .3);
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 87, 34, 0.3);
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -127,15 +128,19 @@
         margin: 20px auto;
         max-width: 1200px;
         border-radius: 10px;
+		animation: gradientBG 30s ease infinite;
+		
     }
 
     .animal-cards {
+	
         display: flex;
         gap: 20px;
         flex-wrap: wrap;
         justify-content: center; /* Center the cards */
         max-width: 1200px;
         margin: 0 auto;
+		
     }
     
     
@@ -172,6 +177,7 @@
     transition: transform 0.3s ease;
     box-sizing: border-box;
     position: relative;
+	 animation: gradientBG 30s ease infinite;
 }
 
 .animal-card2:hover {
@@ -212,6 +218,7 @@
     border: 1px solid #FF5722;
     min-height: 230px; /* Added to ensure consistent height with or without image */
     display: flex;
+	font-weight: bold;
     flex-direction: column;
     justify-content: center;
     background: linear-gradient(135deg, #4D4D4D,#202020); /* Gradient background */
@@ -221,12 +228,17 @@
     transition: transform 0.3s ease;
     box-sizing: border-box;
     position: relative;
+	 animation: gradientBG 30s ease infinite;
+	  display: grid;
+  grid-template-rows: auto auto; /* First row for thumbnail, second for text */
+  justify-items: center; 
 }
 
 
 .animal-card:hover {
     transform: translateY(-5px);
     background: linear-gradient(135deg, rgba(93, 93, 93, 98.0), rgba(55, 55, 55, 98.0) ); /* Add transparency */
+	 animation: gradientBG 30s ease infinite;
 }
 
 
@@ -284,7 +296,11 @@
     position: relative;
     background: linear-gradient(135deg, rgba(207, 116, 56, 0.3), rgba(107, 71, 54, 0.2));
 }
-
+.mission-item.lowest-reward:hover {
+    box-shadow: 0 0 15px #FF5722;
+    position: relative;
+    background: linear-gradient(135deg, rgba(207, 116, 56, 0.15), rgba(107, 71, 54, 0.15));
+}
 .mission-item.lowest-reward::before {
     box-shadow: 0 0 10px #FF5722;
 }
@@ -492,6 +508,9 @@
 
     h3 {
         color: #d1d1d1;
+		font-weight: bold;
+		 text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+		 word-wrap: break-word;
     }
 
     .list-header {
@@ -614,6 +633,22 @@
         margin-right: 8px;
         fill: currentColor;
     }
+    .mission-counter, .reward-counter {
+        font-size: 0.9em;
+        color: #FF5722;
+        font-weight: 600;
+        padding: 5px 10px;
+        background: rgba(255, 87, 34, 0.1);
+        border-radius: 4px;
+        display: inline-block;
+
+  color: #F4511E; 
+
+
+
+}	
+
+
 
     .mission-counter {
         font-size: 0.9em; /* Increased from 0.8em */
@@ -624,6 +659,7 @@
         background: rgba(255, 87, 34, 0.1); /* Added subtle background */
         border-radius: 4px; /* Added rounded corners */
         display: inline-block; /* Makes the background wrap the text nicely */
+
     }
 
     .mission-stats {
@@ -633,20 +669,14 @@
         margin-top: 10px;
     }
 
-    .mission-counter, .reward-counter {
-        font-size: 0.9em;
-        color: #FF5722;
-        font-weight: 600;
-        padding: 5px 10px;
-        background: rgba(255, 87, 34, 0.1);
-        border-radius: 4px;
-        display: inline-block;
-    }
+
+
+    
 
     /* Add this CSS for the textarea */
     .data-paste {
-        width: 100%;
-        height: 300px;
+        width: 50%;
+        height: 275px;
         background: #3D3D3D;
         border: 2px solid #FF5722;
         border-radius: 8px;
@@ -654,7 +684,7 @@
         padding: 15px;
         font-family: monospace;
         margin-top: 20px;
-        resize: vertical;
+        resize: both;
     }
 
     /* Add styles for the load button */
@@ -834,6 +864,21 @@
 		
 }
 
+	.mission-item.completed .mission-thumbnail-wrapper img	 {
+ border: 2.5px solid transparent #4caf50;
+    animation: glow3 1.5s ease-in-out infinite alternate;
+}
+				
+ .mission-item.lowest-reward .mission-thumbnail-wrapper img  {
+ 
+ border: 10px solid transparent #fcba03;
+    animation: glow2 1.5s ease-in-out infinite alternate;
+	
+ 
+ }
+
+
+
 .mission-thumbnail-wrapper img {
     width: 100%;
 	max-height: 75px;
@@ -856,18 +901,7 @@
         }
 		
 		
-	.mission-item.completed .mission-thumbnail-wrapper img	 {
- border: 2.5px solid transparent; #4caf50;
-    animation: glow3 1.5s ease-in-out infinite alternate;
-}
-				
- .mission-item.lowest-reward .mission-thumbnail-wrapper img  {
- 
- border: 2.5px solid transparent; #ffae21;
-    animation: glow2 1.5s ease-in-out infinite alternate;
-	
- 
- }
+
      @keyframes glow3 {
         from {
 			opacity: 0.9;
@@ -914,10 +948,10 @@
 
 <div id="paste-data" class="tab-content">
     <h3>Paste Your Mission Data</h3>
-	<img class="glowing-gif" src="https://i.postimg.cc/L5q0Dhv6/ezgif-com-added-text.gif" alt="How to paste" style="width: 25%; height: auto;">
+	<img class="glowing-gif" src="https://i.postimg.cc/L5q0Dhv6/ezgif-com-added-text.gif" alt="How to paste" style="width: auto; height: auto;">
 <p>*Works with launcher too.</p>
 
-	    <br><p>Paste your mission data here to import your progress:</p>
+	    <br><br>Paste your mission data here to import your progress:<br>
     <textarea class="data-paste" placeholder="Paste your mission data here..."></textarea>
     <button class="load-button" onclick="loadMissionData()">Load Missions</button>
 </div>

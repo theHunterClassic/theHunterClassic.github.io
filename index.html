@@ -14232,8 +14232,9 @@ function toggleFilteredMissions(reserveId, keepSearch = false) {
 	
 
                     // Regular search behavior
+					
 
-	
+
 
                     missionItems.forEach(mission => {
 
@@ -14296,7 +14297,7 @@ function toggleFilteredMissions(reserveId, keepSearch = false) {
 	
 
                 }
-
+highlightLowestRewardMissions(missionList);
 	
 
             });
@@ -14322,7 +14323,9 @@ function toggleFilteredMissions(reserveId, keepSearch = false) {
         if (reserveId !== 'best-available-missions') {
             highlightLowestRewardMissions(missionList);
         }
+		
     }
+	
 }
 
 function toggleComplete(element) {

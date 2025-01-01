@@ -13042,7 +13042,7 @@ Harvest an airborne Magpie Goose with any traditional bow.<br>
               <img src="https://static.wikia.nocookie.net/thehuntergame/images/c/c9/Rougarou_Icon.png" alt="Hirschfelden" title="Hirschfelden" class="animal-thumbnail">
                 <h3>Rougarou Bayou</h3>
             </div>
-            <div class="animal-card2" onclick="toggleFilteredMissions('val-missions')">
+            <div class="animal-card2" onclick="toggleFilteredMissions('Val-des-Bois-missions')">
               <img src="https://static.wikia.nocookie.net/thehuntergame/images/6/66/Val-des-bois_icon.png" alt="Hirschfelden" title="Hirschfelden" class="animal-thumbnail">
               
                 <h3>Val-des-Bois</h3>
@@ -13083,7 +13083,7 @@ Harvest an airborne Magpie Goose with any traditional bow.<br>
         <div id="hirschfelden-missions" class="mission-list"></div>
         <div id="hemmeldal-missions" class="mission-list"></div>
         <div id="rougarou-missions" class="mission-list"></div>
-        <div id="val-missions" class="mission-list"></div>
+        <div id="Val-des-Bois-missions" class="mission-list"></div>
         <div id="bushrangers-missions" class="mission-list"></div>
         <div id="whiterime-missions" class="mission-list"></div>
         <div id="timbergold-missions" class="mission-list"></div>
@@ -14350,7 +14350,7 @@ function toggleComplete(element) {
 						filteredList.id === 'hirschfelden-missions' ||
 						filteredList.id === 'hemmeldal-missions' ||
 						filteredList.id === 'rougarou-missions' ||
-						filteredList.id === 'val-missions' ||
+						filteredList.id === 'Val-des-Bois-missions' ||
 						filteredList.id === 'bushrangers-missions' ||
 						filteredList.id === 'whiterime-missions' ||
 						filteredList.id === 'timbergold-missions' ||
@@ -14386,7 +14386,19 @@ function toggleComplete(element) {
         
         if (listId === 'best-available-missions') {
             updateBestAvailableMissions(missionList);
-        } else if (listId === 'whitehart-missions' || listId === 'Loggers-missions') {
+        } else if (list.id === 'best-available-missions' || 
+                        list.id === 'whitehart-missions' || 
+                        list.id === 'loggers-missions' ||
+						list.id === 'settler-missions' ||						
+						list.id === 'redfeather-missions' ||
+						list.id === 'hirschfelden-missions' ||
+						list.id === 'hemmeldal-missions' ||
+						list.id === 'rougarou-missions' ||
+						list.id === 'Val-des-Bois-missions' ||
+						list.id === 'bushrangers-missions' ||
+						list.id === 'whiterime-missions' ||
+						list.id === 'timbergold-missions' ||
+						list.id === 'piccabeen-missions' ) {
             // Force display block to keep filtered list visible
             missionList.style.display = "block";
             toggleFilteredMissions(listId, true);
@@ -14424,7 +14436,7 @@ function toggleComplete(element) {
 						list.id === 'hirschfelden-missions' ||
 						list.id === 'hemmeldal-missions' ||
 						list.id === 'rougarou-missions' ||
-						list.id === 'val-missions' ||
+						list.id === 'Val-des-Bois-missions' ||
 						list.id === 'bushrangers-missions' ||
 						list.id === 'whiterime-missions' ||
 						list.id === 'timbergold-missions' ||

@@ -1264,7 +1264,7 @@ margin-bottom: 20px;
   <p style="margin: 10px 0; color: #ff6600;">*Works with launcher too.<br><br><br><br></p>
 
 	
-  Paste your mission data here to import your progress:<br>
+  *******PLEASE ALLOW ATLEAST 30 SECONDS TO LOAD******* <br>
   <textarea class="data-paste" placeholder="Paste your mission data here..." style="margin-top: 10px; width: 1000px; height: 300px;"></textarea>
   <button class="load-button" onclick="loadMissionData()" style="margin-top: 10px;">Load Missions</button>
 </div>
@@ -13320,11 +13320,11 @@ function updateBestAvailableMissions(missionList) {
     const searchBar = document.createElement('input');
     searchBar.type = 'text';
     searchBar.id = 'mission-search';
-    searchBar.className = 'search-bar';
+   // searchBar.className = 'search-bar';
     searchBar.placeholder = "Search missions or type 'best' to see best available...";
     searchBarContainer.appendChild(searchBar);
     missionList.appendChild(searchBarContainer);
-	setTimeout(() => searchBar.focus(), 0);
+	//setTimeout(() => searchBar.focus(), 0);
 
   
 
